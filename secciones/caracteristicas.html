@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Características - JARVIS HRZ</title>
+    <link rel="stylesheet" href="../componentes/css/General.css">
+    <link rel="stylesheet" href="../componentes/css/Caracteristicas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="menu-navegacion">
+        <div class="contenedor-menu">
+            <!-- Logo -->
+            <div class="logo">
+                <h2>JARVIS - HRZ</h2>
+            </div>
+            
+            <!-- Menú Desktop -->
+            <ul class="menu-desktop">
+                <li><a href="../index.html" class="enlace-menu">Inicio</a></li>
+                <li><a href="caracteristicas.html" class="enlace-menu activo">Características</a></li>
+                <li><a href="precios.html" class="enlace-menu">Precios</a></li>
+                <li><a href="descargar.html" class="enlace-menu">Descargar</a></li>
+                <li><a href="creador.html" class="enlace-menu">Creador</a></li>
+                <li><a href="#iniciar-sesion" class="enlace-menu boton-iniciar">Iniciar Sesión</a></li>
+            </ul>
+            
+            <!-- Botón Hamburger para móvil -->
+            <button class="boton-hamburger" id="boton-hamburger">
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+            </button>
+        </div>
+        
+        <!-- Overlay para cerrar el menú -->
+        <div class="overlay-menu" id="overlay-menu"></div>
+        
+        <!-- Menú Móvil Lateral -->
+        <div class="menu-movil" id="menu-movil">
+            <div class="header-menu-movil">
+                <h3>Menú</h3>
+                <button class="boton-cerrar-movil" id="boton-cerrar-movil">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="lista-movil">
+                <li><a href="../index.html" class="enlace-movil">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a></li>
+                <li><a href="caracteristicas.html" class="enlace-movil activo">
+                    <i class="fas fa-star"></i>
+                    <span>Características</span>
+                </a></li>
+                <li><a href="precios.html" class="enlace-movil">
+                    <i class="fas fa-tag"></i>
+                    <span>Precios</span>
+                </a></li>
+                <li><a href="descargar.html" class="enlace-movil">
+                    <i class="fas fa-download"></i>
+                    <span>Descargar</span>
+                </a></li>
+                <li><a href="creador.html" class="enlace-movil">
+                    <i class="fas fa-code"></i>
+                    <span>Creador</span>
+                </a></li>
+                <li><a href="#iniciar-sesion" class="enlace-movil boton-iniciar-movil">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Iniciar Sesión</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección de Características -->
+    <section class="seccion-caracteristicas" id="caracteristicas">
+        <div class="contenedor-caracteristicas">
+            <!-- Header de la sección -->
+            <div class="header-caracteristicas">
+                <h1 class="titulo-caracteristicas">Características de JARVIS HRZ</h1>
+                <p class="subtitulo-caracteristicas">Descubre el poder de la inteligencia artificial en tu escritorio</p>
+            </div>
+
+            <!-- Grid de Características -->
+            <div class="grid-caracteristicas">
+                <!-- Chat Inteligente -->
+                <div class="tarjeta-caracteristica" data-aos="fade-up" data-aos-delay="100">
+                    <div class="imagen-caracteristica">
+                        <div class="mockup-chat">
+                            <div class="chat-header">
+                                <div class="chat-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="chat-info">
+                                    <h4>JARVIS HRZ</h4>
+                                    <span class="status">En línea</span>
+                                </div>
+                            </div>
+                            <div class="chat-messages">
+                                <div class="message user">
+                                    <p>¿Puedes ayudarme con mi código?</p>
+                                </div>
+                                <div class="message bot">
+                                    <p>¡Por supuesto! Estoy aquí para ayudarte con programación, análisis de datos, y mucho más.</p>
+                                </div>
+                                <div class="message user">
+                                    <p>Genial, necesito optimizar una función</p>
+                                </div>
+                                <div class="message bot typing">
+                                    <div class="typing-indicator">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenido-caracteristica">
+                        <h3 class="titulo-caracteristica">Chat Inteligente</h3>
+                        <p class="descripcion-caracteristica">Conversa con JARVIS como si fuera tu asistente personal. Responde preguntas, resuelve problemas y te ayuda en tiempo real.</p>
+                        <ul class="lista-caracteristicas">
+                            <li><i class="fas fa-check"></i> Respuestas contextuales</li>
+                            <li><i class="fas fa-check"></i> Memoria de conversación</li>
+                            <li><i class="fas fa-check"></i> Múltiples idiomas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Modo Código -->
+                <div class="tarjeta-caracteristica" data-aos="fade-up" data-aos-delay="200">
+                    <div class="imagen-caracteristica">
+                        <div class="mockup-codigo">
+                            <div class="codigo-header">
+                                <div class="codigo-buttons">
+                                    <span class="btn red"></span>
+                                    <span class="btn yellow"></span>
+                                    <span class="btn green"></span>
+                                </div>
+                                <span class="codigo-title">main.py</span>
+                            </div>
+                            <div class="codigo-content">
+                                <div class="linea-codigo">
+                                    <span class="numero">1</span>
+                                    <span class="codigo">def <span class="keyword">optimizar_algoritmo</span>(datos):</span>
+                                </div>
+                                <div class="linea-codigo">
+                                    <span class="numero">2</span>
+                                    <span class="codigo">    <span class="comment"># JARVIS sugiere mejoras</span></span>
+                                </div>
+                                <div class="linea-codigo highlight">
+                                    <span class="numero">3</span>
+                                    <span class="codigo">    <span class="suggestion">return sorted(datos, key=lambda x: x['valor'])</span></span>
+                                </div>
+                                <div class="linea-codigo">
+                                    <span class="numero">4</span>
+                                    <span class="codigo">    <span class="comment"># Más eficiente que bubble sort</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenido-caracteristica">
+                        <h3 class="titulo-caracteristica">Modo Código</h3>
+                        <p class="descripcion-caracteristica">Asistencia especializada para programación. JARVIS entiende tu código y sugiere mejoras, detecta errores y optimiza algoritmos.</p>
+                        <ul class="lista-caracteristicas">
+                            <li><i class="fas fa-check"></i> Análisis de código</li>
+                            <li><i class="fas fa-check"></i> Sugerencias de optimización</li>
+                            <li><i class="fas fa-check"></i> Detección de errores</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Control de Aplicaciones -->
+                <div class="tarjeta-caracteristica" data-aos="fade-up" data-aos-delay="300">
+                    <div class="imagen-caracteristica">
+                        <div class="mockup-apps">
+                            <div class="apps-grid">
+                                <div class="app-icon chrome">
+                                    <i class="fab fa-chrome"></i>
+                                    <span>Chrome</span>
+                                </div>
+                                <div class="app-icon vscode">
+                                    <i class="fab fa-microsoft"></i>
+                                    <span>VS Code</span>
+                                </div>
+                                <div class="app-icon spotify">
+                                    <i class="fab fa-spotify"></i>
+                                    <span>Spotify</span>
+                                </div>
+                                <div class="app-icon discord">
+                                    <i class="fab fa-discord"></i>
+                                    <span>Discord</span>
+                                </div>
+                            </div>
+                            <div class="control-panel">
+                                <div class="control-item">
+                                    <i class="fas fa-play"></i>
+                                    <span>Abrir</span>
+                                </div>
+                                <div class="control-item">
+                                    <i class="fas fa-pause"></i>
+                                    <span>Pausar</span>
+                                </div>
+                                <div class="control-item">
+                                    <i class="fas fa-stop"></i>
+                                    <span>Cerrar</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenido-caracteristica">
+                        <h3 class="titulo-caracteristica">Control de Aplicaciones</h3>
+                        <p class="descripcion-caracteristica">Gestiona todas tus aplicaciones desde JARVIS. Abre, cierra, pausa y controla cualquier programa con comandos de voz o texto.</p>
+                        <ul class="lista-caracteristicas">
+                            <li><i class="fas fa-check"></i> Control por voz</li>
+                            <li><i class="fas fa-check"></i> Gestión automática</li>
+                            <li><i class="fas fa-check"></i> Integración total</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Recordatorios Inteligentes -->
+                <div class="tarjeta-caracteristica" data-aos="fade-up" data-aos-delay="400">
+                    <div class="imagen-caracteristica">
+                        <div class="mockup-recordatorios">
+                            <div class="recordatorio-header">
+                                <i class="fas fa-bell"></i>
+                                <h4>Recordatorios</h4>
+                            </div>
+                            <div class="recordatorio-list">
+                                <div class="recordatorio-item">
+                                    <div class="recordatorio-icon">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                    <div class="recordatorio-content">
+                                        <h5>Reunión de equipo</h5>
+                                        <p>Hoy 3:00 PM - Sala de conferencias</p>
+                                    </div>
+                                    <div class="recordatorio-status">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="recordatorio-item">
+                                    <div class="recordatorio-icon">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div class="recordatorio-content">
+                                        <h5>Revisar pull request</h5>
+                                        <p>Mañana 9:00 AM</p>
+                                    </div>
+                                    <div class="recordatorio-status">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenido-caracteristica">
+                        <h3 class="titulo-caracteristica">Recordatorios Inteligentes</h3>
+                        <p class="descripcion-caracteristica">Sistema de recordatorios que aprende de tus hábitos. JARVIS te recuerda tareas importantes y eventos programados.</p>
+                        <ul class="lista-caracteristicas">
+                            <li><i class="fas fa-check"></i> Aprendizaje automático</li>
+                            <li><i class="fas fa-check"></i> Notificaciones inteligentes</li>
+                            <li><i class="fas fa-check"></i> Sincronización</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Creación de Documentos -->
+                <div class="tarjeta-caracteristica" data-aos="fade-up" data-aos-delay="500">
+                    <div class="imagen-caracteristica">
+                        <div class="mockup-documentos">
+                            <div class="documento-header">
+                                <i class="fas fa-file-alt"></i>
+                                <h4>Generador de Documentos</h4>
+                            </div>
+                            <div class="documento-content">
+                                <div class="documento-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Reporte Mensual.pdf</span>
+                                </div>
+                                <div class="documento-item">
+                                    <i class="fas fa-file-word"></i>
+                                    <span>Presentación.pptx</span>
+                                </div>
+                                <div class="documento-item">
+                                    <i class="fas fa-file-excel"></i>
+                                    <span>Análisis de Datos.xlsx</span>
+                                </div>
+                            </div>
+                            <div class="documento-actions">
+                                <button class="btn-generar">
+                                    <i class="fas fa-plus"></i>
+                                    Generar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenido-caracteristica">
+                        <h3 class="titulo-caracteristica">Creación de Documentos</h3>
+                        <p class="descripcion-caracteristica">Genera automáticamente reportes, presentaciones y documentos profesionales. JARVIS crea contenido de calidad basado en tus especificaciones.</p>
+                        <ul class="lista-caracteristicas">
+                            <li><i class="fas fa-check"></i> Múltiples formatos</li>
+                            <li><i class="fas fa-check"></i> Plantillas personalizadas</li>
+                            <li><i class="fas fa-check"></i> Exportación automática</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Chat con Internet -->
+                <div class="tarjeta-caracteristica" data-aos="fade-up" data-aos-delay="600">
+                    <div class="imagen-caracteristica">
+                        <div class="mockup-internet">
+                            <div class="internet-header">
+                                <i class="fas fa-globe"></i>
+                                <h4>Conexión a Internet</h4>
+                                <div class="status-indicator">
+                                    <span class="status-dot"></span>
+                                    <span>Conectado</span>
+                                </div>
+                            </div>
+                            <div class="internet-content">
+                                <div class="search-result">
+                                    <h5>Últimas noticias de tecnología</h5>
+                                    <p>Información actualizada en tiempo real...</p>
+                                </div>
+                                <div class="search-result">
+                                    <h5>Precios de criptomonedas</h5>
+                                    <p>Datos en vivo del mercado...</p>
+                                </div>
+                                <div class="search-result">
+                                    <h5>Clima actual</h5>
+                                    <p>Condiciones meteorológicas...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenido-caracteristica">
+                        <h3 class="titulo-caracteristica">Chat con Internet</h3>
+                        <p class="descripcion-caracteristica">Acceso a información actualizada en tiempo real. JARVIS puede buscar en internet, consultar noticias y proporcionar datos actuales.</p>
+                        <ul class="lista-caracteristicas">
+                            <li><i class="fas fa-check"></i> Búsquedas en tiempo real</li>
+                            <li><i class="fas fa-check"></i> Noticias actualizadas</li>
+                            <li><i class="fas fa-check"></i> Datos en vivo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../componentes/js/menu.js"></script>
+    <script src="../componentes/js/caracteristicas.js"></script>
+</body>
+</html>

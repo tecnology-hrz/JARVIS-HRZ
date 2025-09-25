@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargar - JARVIS HRZ</title>
+    <link rel="stylesheet" href="../componentes/css/General.css">
+    <link rel="stylesheet" href="../componentes/css/Descargar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="menu-navegacion">
+        <div class="contenedor-menu">
+            <!-- Logo -->
+            <div class="logo">
+                <h2>JARVIS - HRZ</h2>
+            </div>
+            
+            <!-- Menú Desktop -->
+            <ul class="menu-desktop">
+                <li><a href="../index.html" class="enlace-menu">Inicio</a></li>
+                <li><a href="#caracteristicas" class="enlace-menu">Características</a></li>
+                <li><a href="precios.html" class="enlace-menu">Precios</a></li>
+                <li><a href="descargar.html" class="enlace-menu activo">Descargar</a></li>
+                <li><a href="creador.html" class="enlace-menu">Creador</a></li>
+                <li><a href="#iniciar-sesion" class="enlace-menu boton-iniciar">Iniciar Sesión</a></li>
+            </ul>
+            
+            <!-- Botón Hamburger para móvil -->
+            <button class="boton-hamburger" id="boton-hamburger">
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+            </button>
+        </div>
+        
+        <!-- Overlay para cerrar el menú -->
+        <div class="overlay-menu" id="overlay-menu"></div>
+        
+        <!-- Menú Móvil Lateral -->
+        <div class="menu-movil" id="menu-movil">
+            <div class="header-menu-movil">
+                <h3>Menú</h3>
+                <button class="boton-cerrar-movil" id="boton-cerrar-movil">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="lista-movil">
+                <li><a href="../index.html" class="enlace-movil">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a></li>
+                <li><a href="#caracteristicas" class="enlace-movil">
+                    <i class="fas fa-star"></i>
+                    <span>Características</span>
+                </a></li>
+                <li><a href="precios.html" class="enlace-movil">
+                    <i class="fas fa-tag"></i>
+                    <span>Precios</span>
+                </a></li>
+                <li><a href="descargar.html" class="enlace-movil activo">
+                    <i class="fas fa-download"></i>
+                    <span>Descargar</span>
+                </a></li>
+                <li><a href="creador.html" class="enlace-movil">
+                    <i class="fas fa-code"></i>
+                    <span>Creador</span>
+                </a></li>
+                <li><a href="#iniciar-sesion" class="enlace-movil boton-iniciar-movil">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Iniciar Sesión</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección de Descarga -->
+    <section class="seccion-descarga" id="descargar">
+        <div class="contenedor-descarga">
+            <!-- Header de la sección -->
+            <div class="header-descarga">
+                <h1 class="titulo-descarga">Descarga JARVIS HRZ</h1>
+                <p class="subtitulo-descarga">Elige tu plataforma y comienza tu experiencia con IA</p>
+            </div>
+
+            <!-- Versiones Gratuitas -->
+            <div class="seccion-gratuita">
+                <h2 class="titulo-seccion">Versiones Gratuitas</h2>
+                <p class="descripcion-seccion">Descarga y usa JARVIS sin necesidad de suscripción</p>
+                
+                <div class="grid-descargas">
+                    <!-- Windows Gratuito -->
+                    <div class="tarjeta-descarga gratuita">
+                        <div class="icono-plataforma">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <h3 class="nombre-plataforma">Windows</h3>
+                        <p class="descripcion-plataforma">Versión gratuita para Windows 10/11</p>
+                        <div class="info-version">
+                            <span class="version">v1.0.0</span>
+                            <span class="tamaño">~50 MB</span>
+                        </div>
+                        <ul class="caracteristicas-gratuitas">
+                            <li><i class="fas fa-check"></i> Interfaz principal</li>
+                            <li><i class="fas fa-check"></i> Chat básico</li>
+                            <li><i class="fas fa-check"></i> Solicitudes ilimitadas</li>
+                        </ul>
+                        <button class="boton-descarga gratuita" onclick="descargarGratuito('windows')">
+                            <i class="fas fa-download"></i>
+                            Descargar Gratis
+                        </button>
+                        <div class="requisitos-sistema">
+                            <small>Requisitos: Windows 10/11, 4GB RAM</small>
+                        </div>
+                    </div>
+
+                    <!-- Android Gratuito -->
+                    <div class="tarjeta-descarga gratuita proximamente">
+                        <div class="icono-plataforma">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <h3 class="nombre-plataforma">Android</h3>
+                        <p class="descripcion-plataforma">Aplicación móvil para Android</p>
+                        <div class="info-version">
+                            <span class="version">Próximamente</span>
+                            <span class="tamaño">~25 MB</span>
+                        </div>
+                        <ul class="caracteristicas-gratuitas">
+                            <li><i class="fas fa-check"></i> Interfaz móvil</li>
+                            <li><i class="fas fa-check"></i> Chat básico</li>
+                            <li><i class="fas fa-check"></i> Sincronización</li>
+                        </ul>
+                        <button class="boton-descarga gratuita" disabled>
+                            <i class="fas fa-clock"></i>
+                            Próximamente
+                        </button>
+                        <div class="requisitos-sistema">
+                            <small>Requisitos: Android 8.0+, 2GB RAM</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Versiones Premium -->
+            <div class="seccion-premium">
+                <h2 class="titulo-seccion">Versiones Premium</h2>
+                <p class="descripcion-seccion">Para usuarios con plan activo - Acceso a todas las funcionalidades</p>
+                
+                <div class="grid-descargas">
+                    <!-- Windows Premium -->
+                    <div class="tarjeta-descarga premium">
+                        <div class="icono-plataforma">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <h3 class="nombre-plataforma">Windows Premium</h3>
+                        <p class="descripcion-plataforma">Versión completa para Windows</p>
+                        <div class="info-version">
+                            <span class="version">v1.0.0 Premium</span>
+                            <span class="tamaño">~75 MB</span>
+                        </div>
+                        <ul class="caracteristicas-premium">
+                            <li><i class="fas fa-check"></i> Modo Código</li>
+                            <li><i class="fas fa-check"></i> Control de apps</li>
+                            <li><i class="fas fa-check"></i> Recordatorios</li>
+                            <li><i class="fas fa-check"></i> Chat con internet</li>
+                        </ul>
+                        <button class="boton-descarga premium" onclick="descargarPremium('windows')">
+                            <i class="fas fa-download"></i>
+                            Descargar Premium
+                        </button>
+                    </div>
+
+                    <!-- Android Premium -->
+                    <div class="tarjeta-descarga premium proximamente">
+                        <div class="icono-plataforma">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <h3 class="nombre-plataforma">Android Premium</h3>
+                        <p class="descripcion-plataforma">Aplicación móvil completa</p>
+                        <div class="info-version">
+                            <span class="version">Próximamente</span>
+                            <span class="tamaño">~40 MB</span>
+                        </div>
+                        <ul class="caracteristicas-premium">
+                            <li><i class="fas fa-check"></i> Todas las funciones</li>
+                            <li><i class="fas fa-check"></i> Sincronización completa</li>
+                            <li><i class="fas fa-check"></i> Notificaciones</li>
+                            <li><i class="fas fa-check"></i> Modo offline</li>
+                        </ul>
+                        <button class="boton-descarga premium" disabled>
+                            <i class="fas fa-clock"></i>
+                            Próximamente
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información Adicional -->
+            <div class="info-adicional">
+                <h3>Información Importante</h3>
+                <div class="grid-info">
+                    <div class="info-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Seguro y Confiable</h4>
+                        <p>Todas las descargas están verificadas y libres de malware</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>Actualizaciones Automáticas</h4>
+                        <p>Recibe las últimas mejoras automáticamente</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-headset"></i>
+                        <h4>Soporte 24/7</h4>
+                        <p>Asistencia técnica disponible cuando la necesites</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../componentes/js/menu.js"></script>
+    <script src="../componentes/js/descargar.js"></script>
+</body>
+</html>
