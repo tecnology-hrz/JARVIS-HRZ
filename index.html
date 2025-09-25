@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="componentes/css/General.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="menu-navegacion">
+        <div class="contenedor-menu">
+            <!-- Logo -->
+            <div class="logo">
+                <h2>JARVIS - HRZ</h2>
+            </div>
+            
+            <!-- Menú Desktop -->
+            <ul class="menu-desktop">
+                <li><a href="#caracteristicas" class="enlace-menu">Características</a></li>
+                <li><a href="secciones/precios.html" class="enlace-menu">Precios</a></li>
+                <li><a href="#descargar" class="enlace-menu">Descargar</a></li>
+                <li><a href="secciones/creador.html" class="enlace-menu">Creador</a></li>
+                <li><a href="#iniciar-sesion" class="enlace-menu boton-iniciar">Iniciar Sesión</a></li>
+            </ul>
+            
+            <!-- Botón Hamburger para móvil -->
+            <button class="boton-hamburger" id="boton-hamburger">
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+            </button>
+        </div>
+        
+        <!-- Overlay para cerrar el menú -->
+        <div class="overlay-menu" id="overlay-menu"></div>
+        
+        <!-- Menú Móvil Lateral -->
+        <div class="menu-movil" id="menu-movil">
+            <div class="header-menu-movil">
+                <h3>Menú</h3>
+                <button class="boton-cerrar-movil" id="boton-cerrar-movil">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="lista-movil">
+                <li><a href="#caracteristicas" class="enlace-movil">
+                    <i class="fas fa-star"></i>
+                    <span>Características</span>
+                </a></li>
+                <li><a href="secciones/precios.html" class="enlace-movil">
+                    <i class="fas fa-tag"></i>
+                    <span>Precios</span>
+                </a></li>
+                <li><a href="#descargar" class="enlace-movil">
+                    <i class="fas fa-download"></i>
+                    <span>Descargar</span>
+                </a></li>
+                <li><a href="secciones/creador.html" class="enlace-movil">
+                    <i class="fas fa-code"></i>
+                    <span>Creador</span>
+                </a></li>
+                <li><a href="#iniciar-sesion" class="enlace-movil boton-iniciar-movil">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Iniciar Sesión</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+    <script src="componentes/js/menu.js"></script>
+</body>
+</html>

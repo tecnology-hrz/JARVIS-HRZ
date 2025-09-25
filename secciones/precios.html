@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios - JARVIS HRZ</title>
+    <link rel="stylesheet" href="../componentes/css/General.css">
+    <link rel="stylesheet" href="../componentes/css/Precios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="menu-navegacion">
+        <div class="contenedor-menu">
+            <!-- Logo -->
+            <div class="logo">
+                <h2>JARVIS - HRZ</h2>
+            </div>
+            
+            <!-- Menú Desktop -->
+            <ul class="menu-desktop">
+                <li><a href="../index.html" class="enlace-menu">Inicio</a></li>
+                <li><a href="#caracteristicas" class="enlace-menu">Características</a></li>
+                <li><a href="#precios" class="enlace-menu activo">Precios</a></li>
+                <li><a href="#descargar" class="enlace-menu">Descargar</a></li>
+                <li><a href="#creador" class="enlace-menu">Creador</a></li>
+                <li><a href="#iniciar-sesion" class="enlace-menu boton-iniciar">Iniciar Sesión</a></li>
+            </ul>
+            
+            <!-- Botón Hamburger para móvil -->
+            <button class="boton-hamburger" id="boton-hamburger">
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+            </button>
+        </div>
+        
+        <!-- Overlay para cerrar el menú -->
+        <div class="overlay-menu" id="overlay-menu"></div>
+        
+        <!-- Menú Móvil Lateral -->
+        <div class="menu-movil" id="menu-movil">
+            <div class="header-menu-movil">
+                <h3>Menú</h3>
+                <button class="boton-cerrar-movil" id="boton-cerrar-movil">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="lista-movil">
+                <li><a href="../index.html" class="enlace-movil">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a></li>
+                <li><a href="#caracteristicas" class="enlace-movil">
+                    <i class="fas fa-star"></i>
+                    <span>Características</span>
+                </a></li>
+                <li><a href="#precios" class="enlace-movil activo">
+                    <i class="fas fa-tag"></i>
+                    <span>Precios</span>
+                </a></li>
+                <li><a href="#descargar" class="enlace-movil">
+                    <i class="fas fa-download"></i>
+                    <span>Descargar</span>
+                </a></li>
+                <li><a href="#creador" class="enlace-movil">
+                    <i class="fas fa-code"></i>
+                    <span>Creador</span>
+                </a></li>
+                <li><a href="#iniciar-sesion" class="enlace-movil boton-iniciar-movil">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Iniciar Sesión</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección de Precios -->
+    <section class="seccion-precios" id="precios">
+        <div class="contenedor-precios">
+            <!-- Header de la sección -->
+            <div class="header-precios">
+                <h1 class="titulo-precios">Planes que se Adaptan a Ti</h1>
+                <p class="subtitulo-precios">Elige el plan perfecto para tus necesidades</p>
+            </div>
+
+            <!-- Toggle de precios -->
+            <div class="toggle-precios">
+                <span class="toggle-label" id="mensual-label">Mensual</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="toggle-precios" class="toggle-input">
+                    <label for="toggle-precios" class="toggle-slider"></label>
+                </div>
+                <span class="toggle-label" id="anual-label">Anual</span>
+                <span class="descuento-badge" id="descuento-badge">Ahorra 20%</span>
+            </div>
+
+            <!-- Tarjetas de precios -->
+            <div class="grid-precios">
+                <!-- Plan Básico -->
+                <div class="tarjeta-precio basico">
+                    <div class="icono-plan">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3 class="nombre-plan">Básico</h3>
+                    <div class="precio-plan">
+                        <span class="precio" id="precio-basico">$0 USD</span>
+                        <span class="periodo" id="periodo-basico">/mes</span>
+                    </div>
+                    <p class="descripcion-plan">Perfecto para comenzar</p>
+                    <ul class="caracteristicas-plan">
+                        <li><i class="fas fa-check"></i> Interfaz principal</li>
+                        <li><i class="fas fa-check"></i> Chat básico</li>
+                        <li><i class="fas fa-check"></i> Solicitudes ilimitadas</li>
+                        <li class="no-disponible"><i class="fas fa-times"></i> Control de apps</li>
+                    </ul>
+                    <button class="boton-plan basico">Comenzar Gratis</button>
+                </div>
+
+                <!-- Plan Premium -->
+                <div class="tarjeta-precio premium">
+                    <div class="icono-plan">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="nombre-plan">Premium</h3>
+                    <div class="precio-plan">
+                        <span class="precio" id="precio-premium">$5 USD</span>
+                        <span class="periodo" id="periodo-premium">/mes</span>
+                    </div>
+                    <div class="ahorro-badge" id="ahorro-premium" style="display: none;">
+                        <span>Ahorras $10 USD</span>
+                    </div>
+                    <p class="descripcion-plan">Máximo poder</p>
+                    <ul class="caracteristicas-plan">
+                        <li><i class="fas fa-check"></i> Modo Codigo</li>
+                        <li><i class="fas fa-check"></i> Modo de recordatorios</li>
+                        <li><i class="fas fa-check"></i> Control de aplicaciones</li>
+                        <li><i class="fas fa-check"></i> Creación de documentos</li>
+                        <li><i class="fas fa-check"></i> Chat con conexión a internet</li>
+                    </ul>
+                    <button class="boton-plan premium">Elegir Premium</button>
+                </div>
+
+                <!-- Plan Lifetime -->
+                <div class="tarjeta-precio lifetime">
+                    <div class="icono-plan">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3 class="nombre-plan">Lifetime</h3>
+                    <div class="precio-plan">
+                        <span class="precio" id="precio-lifetime">$200 USD</span>
+                        <span class="periodo" id="periodo-lifetime">único</span>
+                    </div>
+                    <p class="descripcion-plan">Acceso de por vida</p>
+                    <ul class="caracteristicas-plan">
+                        <li><i class="fas fa-check"></i> Todo lo del Premium</li>
+                        <li><i class="fas fa-check"></i> Acceso permanente</li>
+                        <li><i class="fas fa-check"></i> Actualizaciones gratis</li>
+                        <li><i class="fas fa-check"></i> Soporte VIP</li>
+                    </ul>
+                    <button class="boton-plan lifetime">Comprar Lifetime</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Detalles de Planes -->
+    <section class="detalles-planes">
+        <div class="contenedor-detalles">
+            <h2 class="titulo-detalles">Detalles de Cada Plan</h2>
+            <p class="subtitulo-detalles">Descubre todo lo que incluye cada plan de JARVIS HRZ</p>
+            
+            <div class="grid-detalles">
+                <!-- Plan Básico Detallado -->
+                <div class="detalle-plan basico">
+                    <div class="header-detalle">
+                        <div class="icono-detalle">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3>Plan Básico</h3>
+                        <div class="precio-detalle">$0 USD /mes</div>
+                    </div>
+                    <div class="contenido-detalle">
+                        <h4>¿Qué incluye?</h4>
+                        <ul class="lista-detalle">
+                            <li><i class="fas fa-check"></i> <strong>Interfaz principal:</strong> Acceso completo a la interfaz de usuario de JARVIS</li>
+                            <li><i class="fas fa-check"></i> <strong>Chat básico:</strong> Conversaciones limitadas con el asistente IA</li>
+                            <li><i class="fas fa-check"></i> <strong>Solicitudes ilimitadas:</strong> Puedes hacer todas las preguntas que quieras</li>
+                            <li><i class="fas fa-times"></i> <strong>Control de apps:</strong> No disponible en este plan</li>
+                        </ul>
+                        <div class="ideal-para">
+                            <h5>Ideal para:</h5>
+                            <p>Usuarios que quieren probar JARVIS sin compromiso, estudiantes o usuarios casuales que necesitan asistencia básica.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Premium Detallado -->
+                <div class="detalle-plan premium">
+                    <div class="header-detalle">
+                        <div class="icono-detalle">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Plan Premium</h3>
+                        <div class="precio-detalle">$5 USD /mes</div>
+                    </div>
+                    <div class="contenido-detalle">
+                        <h4>¿Qué incluye?</h4>
+                        <ul class="lista-detalle">
+                            <li><i class="fas fa-check"></i> <strong>Modo Código:</strong> Asistencia especializada para programación y desarrollo</li>
+                            <li><i class="fas fa-check"></i> <strong>Modo Recordatorios:</strong> Sistema inteligente de recordatorios y tareas</li>
+                            <li><i class="fas fa-check"></i> <strong>Control de aplicaciones:</strong> Gestiona y controla otras aplicaciones desde JARVIS</li>
+                            <li><i class="fas fa-check"></i> <strong>Creación de documentos:</strong> Genera documentos, reportes y archivos automáticamente</li>
+                            <li><i class="fas fa-check"></i> <strong>Chat con conexión a internet:</strong> Acceso a información actualizada en tiempo real</li>
+                        </ul>
+                        <div class="ideal-para">
+                            <h5>Ideal para:</h5>
+                            <p>Profesionales, desarrolladores, estudiantes avanzados y usuarios que necesitan funcionalidades avanzadas de productividad.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Lifetime Detallado -->
+                <div class="detalle-plan lifetime">
+                    <div class="header-detalle">
+                        <div class="icono-detalle">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h3>Plan Lifetime</h3>
+                        <div class="precio-detalle">$200 USD único</div>
+                    </div>
+                    <div class="contenido-detalle">
+                        <h4>¿Qué incluye?</h4>
+                        <ul class="lista-detalle">
+                            <li><i class="fas fa-check"></i> <strong>Todo lo del Premium:</strong> Todas las funcionalidades del plan Premium</li>
+                            <li><i class="fas fa-check"></i> <strong>Acceso permanente:</strong> Sin renovaciones, acceso de por vida</li>
+                            <li><i class="fas fa-check"></i> <strong>Actualizaciones gratis:</strong> Recibe todas las nuevas funciones sin costo adicional</li>
+                            <li><i class="fas fa-check"></i> <strong>Soporte VIP:</strong> Atención prioritaria y soporte técnico especializado</li>
+                            <li><i class="fas fa-check"></i> <strong>Funciones exclusivas:</strong> Acceso a características beta y experimentales</li>
+                        </ul>
+                        <div class="ideal-para">
+                            <h5>Ideal para:</h5>
+                            <p>Usuarios que planean usar JARVIS a largo plazo, empresas o profesionales que necesitan la máxima funcionalidad sin costos recurrentes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../componentes/js/menu.js"></script>
+    <script src="../componentes/js/precios.js"></script>
+</body>
+</html>

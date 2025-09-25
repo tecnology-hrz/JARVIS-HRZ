@@ -1,0 +1,18 @@
+:root {
+    --neon-blue: #00d4ff;
+    --neon-cyan: #00ffff;
+    --electric-blue: #0080ff;
+    --deep-blue: #001a33;
+    --dark-bg: #000814;
+    --darker-bg: #000510;
+    --card-bg: #001122;
+    --glass-bg: rgba(0, 212, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #a0c4ff;
+    --text-muted: #6b8cff;
+    --neon-gradient: linear-gradient(135deg, #00d4ff 0%, #00ffff 50%, #0080ff 100%);
+    --glass-gradient: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%);
+    --neon-glow: 0 0 20px rgba(0, 212, 255, 0.5);
+    --neon-glow-strong: 0 0 40px rgba(0, 212, 255, 0.8);
+    --card-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
+}

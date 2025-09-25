@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador - JARVIS HRZ</title>
+    <link rel="stylesheet" href="../componentes/css/General.css">
+    <link rel="stylesheet" href="../componentes/css/Creador.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="menu-navegacion">
+        <div class="contenedor-menu">
+            <!-- Logo -->
+            <div class="logo">
+                <h2>JARVIS - HRZ</h2>
+            </div>
+            
+            <!-- Menú Desktop -->
+            <ul class="menu-desktop">
+                <li><a href="../index.html" class="enlace-menu">Inicio</a></li>
+                <li><a href="#caracteristicas" class="enlace-menu">Características</a></li>
+                <li><a href="precios.html" class="enlace-menu">Precios</a></li>
+                <li><a href="#descargar" class="enlace-menu">Descargar</a></li>
+                <li><a href="#creador" class="enlace-menu activo">Creador</a></li>
+                <li><a href="#iniciar-sesion" class="enlace-menu boton-iniciar">Iniciar Sesión</a></li>
+            </ul>
+            
+            <!-- Botón Hamburger para móvil -->
+            <button class="boton-hamburger" id="boton-hamburger">
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+            </button>
+        </div>
+        
+        <!-- Overlay para cerrar el menú -->
+        <div class="overlay-menu" id="overlay-menu"></div>
+        
+        <!-- Menú Móvil Lateral -->
+        <div class="menu-movil" id="menu-movil">
+            <div class="header-menu-movil">
+                <h3>Menú</h3>
+                <button class="boton-cerrar-movil" id="boton-cerrar-movil">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="lista-movil">
+                <li><a href="../index.html" class="enlace-movil">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a></li>
+                <li><a href="#caracteristicas" class="enlace-movil">
+                    <i class="fas fa-star"></i>
+                    <span>Características</span>
+                </a></li>
+                <li><a href="precios.html" class="enlace-movil">
+                    <i class="fas fa-tag"></i>
+                    <span>Precios</span>
+                </a></li>
+                <li><a href="#descargar" class="enlace-movil">
+                    <i class="fas fa-download"></i>
+                    <span>Descargar</span>
+                </a></li>
+                <li><a href="#creador" class="enlace-movil activo">
+                    <i class="fas fa-code"></i>
+                    <span>Creador</span>
+                </a></li>
+                <li><a href="#iniciar-sesion" class="enlace-movil boton-iniciar-movil">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Iniciar Sesión</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección Principal del Creador -->
+    <section class="seccion-creador" id="creador">
+        <div class="contenedor-creador">
+            <!-- Header de la sección -->
+            <div class="header-creador">
+                <h1 class="titulo-creador">Conoce al Creador</h1>
+                <p class="subtitulo-creador">La mente detrás de JARVIS HRZ</p>
+            </div>
+
+            <!-- Perfil del Creador -->
+            <div class="perfil-creador">
+                <div class="imagen-perfil">
+                    <div class="contenedor-imagen">
+                        <img src="../imagenes/andres-hincapie.jpeg" alt="Andrés Hincapié Ruiz" class="foto-perfil">
+                        <div class="efecto-neon"></div>
+                    </div>
+                </div>
+                
+                <div class="informacion-creador">
+                    <h2 class="nombre-creador">Andrés Hincapié Ruiz</h2>
+                    <h3 class="titulo-profesional">Fundador de Elite Programmers Global</h3>
+                    <p class="descripcion-creador">
+                        Desarrollador visionario y líder tecnológico, Andrés Hincapié Ruiz es el fundador de 
+                        <strong>Elite Programmers Global</strong>, una comunidad de programación y desarrollo 
+                        que reúne a los mejores talentos del mundo tech. Su pasión por la innovación y la 
+                        inteligencia artificial lo llevó a crear <strong>JARVIS HRZ</strong>, una IA inspirada 
+                        en el famoso asistente de Iron Man, diseñada para revolucionar la forma en que 
+                        interactuamos con la tecnología.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Logros y Experiencia -->
+            <div class="logros-creador">
+                <div class="grid-logros">
+                    <div class="tarjeta-logro">
+                        <div class="icono-logro">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Elite Programmers Global</h4>
+                        <p>Fundador y líder de una comunidad global de programadores de élite, fomentando la colaboración y el crecimiento profesional en el sector tecnológico.</p>
+                    </div>
+
+                    <div class="tarjeta-logro">
+                        <div class="icono-logro">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>JARVIS HRZ</h4>
+                        <p>Desarrollador principal de JARVIS HRZ, una inteligencia artificial avanzada inspirada en el asistente de Iron Man, diseñada para maximizar la productividad y eficiencia.</p>
+                    </div>
+
+                    <div class="tarjeta-logro">
+                        <div class="icono-logro">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Innovación Tecnológica</h4>
+                        <p>Pionero en el desarrollo de soluciones de IA que combinan funcionalidad práctica con una experiencia de usuario excepcional, estableciendo nuevos estándares en la industria.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filosofía y Visión -->
+            <div class="filosofia-creador">
+                <h3 class="titulo-filosofia">Filosofía y Visión</h3>
+                <div class="contenido-filosofia">
+                    <div class="cita-destacada">
+                        <i class="fas fa-quote-left"></i>
+                        <p class="texto-cita">
+                            "La tecnología debe servir para potenciar las capacidades humanas, no reemplazarlas. 
+                            JARVIS HRZ representa mi visión de un futuro donde la inteligencia artificial trabaja 
+                            en armonía con los desarrolladores para crear soluciones extraordinarias."
+                        </p>
+                        <span class="autor-cita">- Andrés Hincapié Ruiz</span>
+                    </div>
+                    
+                    <div class="valores-creador">
+                        <h4>Valores Fundamentales</h4>
+                        <ul class="lista-valores">
+                            <li><i class="fas fa-check"></i> <strong>Innovación constante:</strong> Siempre buscando nuevas formas de mejorar la experiencia del usuario</li>
+                            <li><i class="fas fa-check"></i> <strong>Comunidad primero:</strong> Construyendo herramientas que unan y empoderen a los desarrolladores</li>
+                            <li><i class="fas fa-check"></i> <strong>Excelencia técnica:</strong> Comprometido con la calidad y el rendimiento en cada línea de código</li>
+                            <li><i class="fas fa-check"></i> <strong>Accesibilidad:</strong> Democratizando el acceso a herramientas de IA avanzadas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conecta con el Creador -->
+            <div class="conectar-creador">
+                <h3 class="titulo-conectar">Conecta con Andrés</h3>
+                <p class="descripcion-conectar">
+                    ¿Tienes preguntas sobre JARVIS HRZ o quieres formar parte de Elite Programmers Global? 
+                    Conecta con Andrés y únete a la revolución tecnológica.
+                </p>
+                
+                <div class="botones-conectar">
+                    <a href="#" class="boton-conectar primario">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contactar</span>
+                    </a>
+                    <a href="#" class="boton-conectar secundario">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="boton-conectar secundario">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../componentes/js/menu.js"></script>
+</body>
+</html>

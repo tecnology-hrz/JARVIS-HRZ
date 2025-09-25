@@ -1,0 +1,400 @@
+:root {
+    --neon-blue: #00d4ff;
+    --neon-cyan: #00ffff;
+    --electric-blue: #0080ff;
+    --deep-blue: #001a33;
+    --dark-bg: #000814;
+    --darker-bg: #000510;
+    --card-bg: #001122;
+    --glass-bg: rgba(0, 212, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #a0c4ff;
+    --text-muted: #6b8cff;
+    --neon-gradient: linear-gradient(135deg, #00d4ff 0%, #00ffff 50%, #0080ff 100%);
+    --glass-gradient: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%);
+    --neon-glow: 0 0 20px rgba(0, 212, 255, 0.5);
+    --neon-glow-strong: 0 0 40px rgba(0, 212, 255, 0.8);
+    --card-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Menú de Navegación */
+.menu-navegacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 8, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.contenedor-menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo h2 {
+    background: var(--neon-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: var(--neon-glow);
+}
+
+/* Menú Desktop */
+.menu-desktop {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.enlace-menu {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.enlace-menu:hover {
+    color: var(--neon-blue);
+    text-shadow: var(--neon-glow);
+    background: var(--glass-bg);
+}
+
+.enlace-menu::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--neon-gradient);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.enlace-menu:hover::after {
+    width: 80%;
+    box-shadow: var(--neon-glow);
+}
+
+/* Botón Iniciar Sesión */
+.boton-iniciar {
+    background: var(--neon-gradient);
+    color: var(--dark-bg) !important;
+    font-weight: bold;
+    padding: 0.7rem 1.5rem !important;
+    border-radius: 25px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.boton-iniciar:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--neon-glow-strong);
+    background: var(--neon-gradient);
+}
+
+.boton-iniciar::after {
+    display: none;
+}
+
+/* Botón Hamburger para móvil */
+.boton-hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 4px;
+}
+
+.linea-hamburger {
+    width: 25px;
+    height: 3px;
+    background: var(--neon-blue);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    box-shadow: var(--neon-glow);
+}
+
+.boton-hamburger.activo .linea-hamburger:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.boton-hamburger.activo .linea-hamburger:nth-child(2) {
+    opacity: 0;
+}
+
+.boton-hamburger.activo .linea-hamburger:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Overlay para cerrar el menú */
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 998;
+}
+
+.overlay-menu.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Menú Móvil Lateral */
+.menu-movil {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100vh;
+    background: var(--darker-bg);
+    border-left: 1px solid rgba(0, 212, 255, 0.2);
+    backdrop-filter: blur(15px);
+    transform: translateX(0);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 999;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-movil.activo {
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Header del menú móvil */
+.header-menu-movil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    background: var(--glass-bg);
+}
+
+.header-menu-movil h3 {
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: var(--neon-glow);
+}
+
+/* Botón cerrar en el menú móvil */
+.boton-cerrar-movil {
+    background: none;
+    border: none;
+    color: var(--neon-blue);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boton-cerrar-movil:hover {
+    background: var(--glass-bg);
+    transform: rotate(90deg);
+    box-shadow: var(--neon-glow);
+}
+
+.lista-movil {
+    list-style: none;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.enlace-movil {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.enlace-movil::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--glass-gradient);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.enlace-movil:hover::before {
+    left: 0;
+}
+
+.enlace-movil:hover {
+    color: var(--neon-blue);
+    border-color: rgba(0, 212, 255, 0.3);
+    text-shadow: var(--neon-glow);
+    transform: translateX(5px);
+}
+
+.enlace-movil i {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+    color: var(--neon-cyan);
+}
+
+.enlace-movil span {
+    font-size: 1rem;
+}
+
+.boton-iniciar-movil {
+    background: var(--neon-gradient) !important;
+    color: var(--dark-bg) !important;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    box-shadow: var(--card-shadow);
+    justify-content: center;
+    border: 2px solid var(--neon-blue) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.boton-iniciar-movil::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.boton-iniciar-movil:hover::before {
+    left: 100%;
+}
+
+.boton-iniciar-movil:hover {
+    transform: translateX(5px) translateY(-2px);
+    box-shadow: var(--neon-glow-strong);
+    background: var(--neon-gradient) !important;
+}
+
+.boton-iniciar-movil i {
+    color: var(--dark-bg) !important;
+    font-size: 1.4rem !important;
+    z-index: 2;
+    position: relative;
+}
+
+.boton-iniciar-movil span {
+    color: var(--dark-bg) !important;
+    font-weight: bold !important;
+    z-index: 2;
+    position: relative;
+}
+
+/* Contenido Principal */
+.contenido-principal {
+    margin-top: 100px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.contenido-principal h1 {
+    background: var(--neon-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.contenido-principal p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-desktop {
+        display: none;
+    }
+    
+    .boton-hamburger {
+        display: flex;
+    }
+    
+    .contenedor-menu {
+        padding: 0 1rem;
+    }
+    
+    .logo h2 {
+        font-size: 1.5rem;
+    }
+    
+    .contenido-principal h1 {
+        font-size: 2rem;
+    }
+    
+    .contenido-principal p {
+        font-size: 1rem;
+    }
+}

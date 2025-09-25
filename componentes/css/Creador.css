@@ -1,0 +1,497 @@
+/* Estilos específicos para la sección Creador */
+
+/* Sección Principal del Creador */
+.seccion-creador {
+    min-height: 100vh;
+    background: var(--dark-bg);
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.seccion-creador::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.contenedor-creador {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header de la sección */
+.header-creador {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.titulo-creador {
+    background: var(--neon-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: var(--neon-glow);
+}
+
+.subtitulo-creador {
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+/* Perfil del Creador */
+.perfil-creador {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 5rem;
+    padding: 3rem;
+    background: var(--glass-gradient);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--card-shadow);
+}
+
+.imagen-perfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-imagen {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--neon-gradient);
+    border-radius: 50%;
+    box-shadow: var(--neon-glow-strong);
+}
+
+.foto-perfil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 2;
+    position: relative;
+}
+
+.efecto-neon {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: var(--neon-gradient);
+    opacity: 0.3;
+    animation: rotar-neon 3s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotar-neon {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.informacion-creador {
+    padding: 1rem 0;
+}
+
+.nombre-creador {
+    color: var(--neon-blue);
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: var(--neon-glow);
+}
+
+.titulo-profesional {
+    color: var(--neon-cyan);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.descripcion-creador {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.descripcion-creador strong {
+    color: var(--neon-blue);
+    font-weight: 600;
+}
+
+/* Logros del Creador */
+.logros-creador {
+    margin-bottom: 5rem;
+}
+
+.grid-logros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.tarjeta-logro {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta-logro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--glass-gradient);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.tarjeta-logro:hover::before {
+    left: 0;
+}
+
+.tarjeta-logro:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--neon-glow);
+    border-color: var(--neon-blue);
+}
+
+.icono-logro {
+    width: 60px;
+    height: 60px;
+    background: var(--neon-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.icono-logro i {
+    font-size: 1.5rem;
+    color: var(--dark-bg);
+}
+
+.tarjeta-logro h4 {
+    color: var(--neon-blue);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.tarjeta-logro p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* Filosofía del Creador */
+.filosofia-creador {
+    margin-bottom: 5rem;
+    padding: 3rem;
+    background: var(--glass-gradient);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.titulo-filosofia {
+    color: var(--neon-blue);
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: var(--neon-glow);
+}
+
+.contenido-filosofia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.cita-destacada {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    border-left: 4px solid var(--neon-blue);
+    position: relative;
+    box-shadow: var(--card-shadow);
+}
+
+.cita-destacada i {
+    color: var(--neon-cyan);
+    font-size: 2rem;
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+}
+
+.texto-cita {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.8;
+    margin: 2rem 0 1.5rem 0;
+    padding-left: 1rem;
+}
+
+.autor-cita {
+    color: var(--neon-blue);
+    font-weight: bold;
+    font-size: 1rem;
+    display: block;
+    text-align: right;
+}
+
+.valores-creador h4 {
+    color: var(--neon-cyan);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.lista-valores {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-valores li {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    line-height: 1.6;
+}
+
+.lista-valores i {
+    color: var(--neon-blue);
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.lista-valores strong {
+    color: var(--neon-cyan);
+    font-weight: 600;
+}
+
+/* Conectar con el Creador */
+.conectar-creador {
+    text-align: center;
+    padding: 3rem;
+    background: var(--card-bg);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow: var(--card-shadow);
+}
+
+.titulo-conectar {
+    color: var(--neon-blue);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: var(--neon-glow);
+}
+
+.descripcion-conectar {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.botones-conectar {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.boton-conectar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.boton-conectar.primario {
+    background: var(--neon-gradient);
+    color: var(--dark-bg);
+    box-shadow: var(--card-shadow);
+}
+
+.boton-conectar.primario:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--neon-glow-strong);
+}
+
+.boton-conectar.secundario {
+    background: transparent;
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+}
+
+.boton-conectar.secundario:hover {
+    background: var(--neon-blue);
+    color: var(--dark-bg);
+    transform: translateY(-3px);
+    box-shadow: var(--neon-glow);
+}
+
+.boton-conectar i {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contenedor-creador {
+        padding: 0 1rem;
+    }
+    
+    .titulo-creador {
+        font-size: 2.5rem;
+    }
+    
+    .subtitulo-creador {
+        font-size: 1.1rem;
+    }
+    
+    .perfil-creador {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+        padding: 2rem;
+    }
+    
+    .contenedor-imagen {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    
+    .foto-perfil {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .nombre-creador {
+        font-size: 2rem;
+    }
+    
+    .titulo-profesional {
+        font-size: 1.3rem;
+    }
+    
+    .contenido-filosofia {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .cita-destacada {
+        padding: 2rem;
+    }
+    
+    .texto-cita {
+        font-size: 1rem;
+        margin: 1.5rem 0 1rem 0;
+    }
+    
+    .botones-conectar {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .boton-conectar {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .seccion-creador {
+        padding: 100px 0 60px;
+    }
+    
+    .titulo-creador {
+        font-size: 2rem;
+    }
+    
+    .perfil-creador {
+        padding: 1.5rem;
+    }
+    
+    .contenedor-imagen {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .foto-perfil {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .nombre-creador {
+        font-size: 1.8rem;
+    }
+    
+    .grid-logros {
+        grid-template-columns: 1fr;
+    }
+    
+    .filosofia-creador {
+        padding: 2rem;
+    }
+    
+    .conectar-creador {
+        padding: 2rem;
+    }
+}
