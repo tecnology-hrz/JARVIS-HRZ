@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <link rel="stylesheet" href="componentes/css/General.css">
+    <link rel="stylesheet" href="componentes/css/Inicio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -18,11 +19,11 @@
             
             <!-- Menú Desktop -->
             <ul class="menu-desktop">
-                <li><a href="#caracteristicas" class="enlace-menu">Características</a></li>
+                <li><a href="secciones/caracteristicas.html" class="enlace-menu">Características</a></li>
                 <li><a href="secciones/precios.html" class="enlace-menu">Precios</a></li>
-                <li><a href="#descargar" class="enlace-menu">Descargar</a></li>
+                <li><a href="secciones/descargar.html" class="enlace-menu">Descargar</a></li>
                 <li><a href="secciones/creador.html" class="enlace-menu">Creador</a></li>
-                <li><a href="#iniciar-sesion" class="enlace-menu boton-iniciar">Iniciar Sesión</a></li>
+                <li><a href="secciones/iniciar-sesion.html" class="enlace-menu boton-iniciar">Iniciar Sesión</a></li>
             </ul>
             
             <!-- Botón Hamburger para móvil -->
@@ -45,7 +46,7 @@
                 </button>
             </div>
             <ul class="lista-movil">
-                <li><a href="#caracteristicas" class="enlace-movil">
+                <li><a href="secciones/caracteristicas.html" class="enlace-movil">
                     <i class="fas fa-star"></i>
                     <span>Características</span>
                 </a></li>
@@ -53,7 +54,7 @@
                     <i class="fas fa-tag"></i>
                     <span>Precios</span>
                 </a></li>
-                <li><a href="#descargar" class="enlace-movil">
+                <li><a href="secciones/descargar.html" class="enlace-movil">
                     <i class="fas fa-download"></i>
                     <span>Descargar</span>
                 </a></li>
@@ -61,13 +62,152 @@
                     <i class="fas fa-code"></i>
                     <span>Creador</span>
                 </a></li>
-                <li><a href="#iniciar-sesion" class="enlace-movil boton-iniciar-movil">
+                <li><a href="secciones/iniciar-sesion.html" class="enlace-movil boton-iniciar-movil">
                     <i class="fas fa-user-circle"></i>
                     <span>Iniciar Sesión</span>
                 </a></li>
             </ul>
         </div>
     </nav>
+
+    <!-- Sección Hero/Inicio -->
+    <section class="seccion-hero">
+        <div class="contenedor-hero">
+            <div class="contenido-hero">
+                <h1 class="titulo-principal">JARVIS-HRZ</h1>
+                <p class="subtitulo-hero">Tu asistente inteligente del futuro</p>
+                <p class="descripcion-hero">
+                    Descubre las capacidades avanzadas de JARVIS-HRZ, diseñado para revolucionar 
+                    tu experiencia digital con inteligencia artificial de última generación.
+                </p>
+                <div class="botones-hero">
+                    <a href="#caracteristicas" class="boton-principal">Explorar Características</a>
+                    <a href="secciones/precios.html" class="boton-secundario">Ver Precios</a>
+                </div>
+            </div>
+            <div class="imagen-hero">
+                <img src="imagenes/1.png" alt="JARVIS-HRZ Interface" class="img-principal">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Características -->
+    <section id="caracteristicas" class="seccion-caracteristicas">
+        <div class="contenedor-caracteristicas">
+            <h2 class="titulo-seccion">Características Principales</h2>
+            <p class="descripcion-seccion">
+                Conoce las funcionalidades que hacen de JARVIS-HRZ tu mejor opción
+            </p>
+            
+            <div class="grid-caracteristicas">
+                <div class="tarjeta-caracteristica">
+                    <div class="icono-caracteristica">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Chat Inteligente</h3>
+                    <p>Conversa con JARVIS como si fuera tu asistente personal. Responde preguntas, resuelve problemas y te ayuda en tiempo real.</p>
+                    <img src="imagenes/2.png" alt="Chat Inteligente" class="img-caracteristica">
+                </div>
+
+                <div class="tarjeta-caracteristica">
+                    <div class="icono-caracteristica">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Modo Código</h3>
+                    <p>Asistencia especializada para programación. JARVIS entiende tu código y sugiere mejoras, detecta errores y optimiza algoritmos.</p>
+                    <img src="imagenes/3.png" alt="Modo Código" class="img-caracteristica">
+                </div>
+
+                <div class="tarjeta-caracteristica">
+                    <div class="icono-caracteristica">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Control de Aplicaciones</h3>
+                    <p>Gestiona todas tus aplicaciones desde JARVIS. Abre, cierra, pausa y controla cualquier programa con comandos de voz o texto.</p>
+                    <img src="imagenes/4.png" alt="Control de Aplicaciones" class="img-caracteristica">
+                </div>
+
+                <div class="tarjeta-caracteristica">
+                    <div class="icono-caracteristica">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Recordatorios Inteligentes</h3>
+                    <p>Sistema de recordatorios que aprende de tus hábitos. JARVIS te recuerda tareas importantes y eventos programados.</p>
+                    <img src="imagenes/5.png" alt="Recordatorios Inteligentes" class="img-caracteristica">
+                </div>
+
+                <div class="tarjeta-caracteristica">
+                    <div class="icono-caracteristica">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Creación de Documentos</h3>
+                    <p>Genera automáticamente reportes, presentaciones y documentos profesionales. JARVIS crea contenido de calidad basado en tus especificaciones.</p>
+                    <img src="imagenes/6.png" alt="Creación de Documentos" class="img-caracteristica">
+                </div>
+
+                <div class="tarjeta-caracteristica">
+                    <div class="icono-caracteristica">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Chat con Internet</h3>
+                    <p>Acceso a información actualizada en tiempo real. JARVIS puede buscar en internet, consultar noticias y proporcionar datos actuales.</p>
+                    <img src="imagenes/7.png" alt="Chat con Internet" class="img-caracteristica">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Información Adicional -->
+    <section class="seccion-informacion">
+        <div class="contenedor-informacion">
+            <div class="contenido-informacion">
+                <h2 class="titulo-informacion">¿Por qué elegir JARVIS-HRZ?</h2>
+                <div class="lista-beneficios">
+                    <div class="beneficio">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Desarrollado por expertos en IA con más de 10 años de experiencia</span>
+                    </div>
+                    <div class="beneficio">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Actualizaciones constantes con nuevas funcionalidades</span>
+                    </div>
+                    <div class="beneficio">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Integración perfecta con tus herramientas favoritas</span>
+                    </div>
+                    <div class="beneficio">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Interfaz intuitiva diseñada para máxima productividad</span>
+                    </div>
+                </div>
+            </div>
+            <div class="imagen-informacion">
+                <img src="imagenes/8.png" alt="JARVIS-HRZ en acción" class="img-informacion">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Descarga -->
+    <section id="descargar" class="seccion-descarga">
+        <div class="contenedor-descarga">
+            <h2 class="titulo-descarga">Comienza tu experiencia con JARVIS-HRZ</h2>
+            <p class="descripcion-descarga">
+                Descarga la versión gratuita y descubre todo el potencial de tu nuevo asistente inteligente
+            </p>
+            <div class="botones-descarga">
+                <a href="#" class="boton-descarga">
+                    <i class="fas fa-download"></i>
+                    <span>Descargar Gratis</span>
+                </a>
+                <a href="secciones/precios.html" class="boton-planes">
+                    <i class="fas fa-star"></i>
+                    <span>Ver Planes Premium</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <script src="componentes/js/menu.js"></script>
+    <script src="componentes/js/Inicio.js"></script>
 </body>
 </html>
