@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Logo Principal -->
+    <url>
+        <loc>https://jarvis-hrz.com/</loc>
+        <image:image>
+            <image:loc>https://jarvis-hrz.com/imagenes/1.ico</image:loc>
+            <image:title>JARVIS-HRZ Logo</image:title>
+            <image:caption>Logo oficial de JARVIS-HRZ - Asistente Inteligente</image:caption>
+            <image:license>https://jarvis-hrz.com/</image:license>
+        </image:image>
+    </url>
+    
+    <!-- Imagen Principal -->
+    <url>
+        <loc>https://jarvis-hrz.com/</loc>
+        <image:image>
+            <image:loc>https://jarvis-hrz.com/imagenes/1.png</image:loc>
+            <image:title>JARVIS-HRZ Interface</image:title>
+            <image:caption>Interfaz principal de JARVIS-HRZ creado por Andrés Hincapié Ruiz</image:caption>
+            <image:license>https://jarvis-hrz.com/</image:license>
+        </image:image>
+    </url>
+    
+    <!-- Imagen del Creador -->
+    <url>
+        <loc>https://jarvis-hrz.com/secciones/creador.html</loc>
+        <image:image>
+            <image:loc>https://jarvis-hrz.com/imagenes/andres-hincapie.jpeg</image:loc>
+            <image:title>Andrés Hincapié Ruiz - Creador de JARVIS-HRZ</image:title>
+            <image:caption>Fundador de Elite Programmers Global y desarrollador de JARVIS-HRZ</image:caption>
+            <image:license>https://jarvis-hrz.com/</image:license>
+        </image:image>
+    </url>
+    
+</urlset>

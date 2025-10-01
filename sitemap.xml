@@ -5,12 +5,17 @@
     <url>
         <loc>https://jarvis-hrz.com/</loc>
         <lastmod>2024-01-15</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://jarvis-hrz.com/imagenes/1.png</image:loc>
-            <image:title>JARVIS-HRZ - Asistente Inteligente</image:title>
+            <image:loc>https://jarvis-hrz.com/imagenes/1.ico</image:loc>
+            <image:title>JARVIS-HRZ - Asistente Inteligente del Futuro</image:title>
             <image:caption>Creado por Andrés Hincapié Ruiz - Elite Programmers Global</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://jarvis-hrz.com/imagenes/1.png</image:loc>
+            <image:title>JARVIS-HRZ Interface</image:title>
+            <image:caption>Interfaz principal de JARVIS-HRZ</image:caption>
         </image:image>
     </url>
     
@@ -64,7 +69,7 @@
         <loc>https://jarvis-hrz.com/secciones/iniciar-sesion.html</loc>
         <lastmod>2024-01-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
+        <priority>0.3</priority>
     </url>
     
 </urlset>
