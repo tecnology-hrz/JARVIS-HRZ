@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:author="http://www.google.com/schemas/sitemap-author/1.0">
+    
+    <!-- Información del Autor - Andrés Hincapié Ruiz -->
+    <url>
+        <loc>https://jarvis-hrz.com/secciones/creador.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <author:author>
+            <author:name>Andrés Hincapié Ruiz</author:name>
+            <author:title>Fundador de Elite Programmers Global</author:title>
+            <author:description>Desarrollador visionario y líder tecnológico, creador de JARVIS-HRZ, una IA inspirada en el asistente de Iron Man</author:description>
+            <author:expertise>Inteligencia Artificial, Desarrollo de Software, Liderazgo Tecnológico</author:expertise>
+        </author:author>
+    </url>
+    
+    <!-- Proyecto Principal -->
+    <url>
+        <loc>https://jarvis-hrz.com/</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <author:author>
+            <author:name>Andrés Hincapié Ruiz</author:name>
+            <author:title>Creador y Desarrollador Principal</author:title>
+            <author:description>Desarrollador principal de JARVIS-HRZ, asistente inteligente del futuro</author:description>
+        </author:author>
+    </url>
+    
+</urlset>

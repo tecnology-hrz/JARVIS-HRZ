@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://jarvis-hrz.com/sitemap.xml
+Sitemap: https://jarvis-hrz.com/author-sitemap.xml
+
+# Permitir acceso a archivos CSS y JS
+Allow: /componentes/css/
+Allow: /componentes/js/
+Allow: /imagenes/
+
+# Bloquear archivos sensibles
+Disallow: /Data.txt
+Disallow: /componentes/js/protection.js
+Disallow: /componentes/js/session-check.js
+
+# Permitir acceso a todas las páginas principales
+Allow: /secciones/
+Allow: /index.html
+
+# Crawl-delay para ser amigable con los servidores
+Crawl-delay: 1

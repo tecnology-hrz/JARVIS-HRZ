@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <!-- Página Principal -->
+    <url>
+        <loc>https://jarvis-hrz.com/</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://jarvis-hrz.com/imagenes/1.png</image:loc>
+            <image:title>JARVIS-HRZ - Asistente Inteligente</image:title>
+            <image:caption>Creado por Andrés Hincapié Ruiz - Elite Programmers Global</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Características -->
+    <url>
+        <loc>https://jarvis-hrz.com/secciones/caracteristicas.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Precios -->
+    <url>
+        <loc>https://jarvis-hrz.com/secciones/precios.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Descargar -->
+    <url>
+        <loc>https://jarvis-hrz.com/secciones/descargar.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Creador -->
+    <url>
+        <loc>https://jarvis-hrz.com/secciones/creador.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://jarvis-hrz.com/imagenes/andres-hincapie.jpeg</image:loc>
+            <image:title>Andrés Hincapié Ruiz - Creador de JARVIS-HRZ</image:title>
+            <image:caption>Fundador de Elite Programmers Global y desarrollador de JARVIS-HRZ</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Registro -->
+    <url>
+        <loc>https://jarvis-hrz.com/secciones/registro.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Iniciar Sesión -->
+    <url>
+        <loc>https://jarvis-hrz.com/secciones/iniciar-sesion.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+</urlset>
