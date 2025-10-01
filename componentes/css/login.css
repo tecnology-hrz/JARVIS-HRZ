@@ -1,0 +1,417 @@
+/* Sección de Login/Registro */
+.seccion-auth {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 2rem 2rem;
+    background: var(--dark-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.seccion-auth::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+    animation: rotateGradient 20s linear infinite;
+}
+
+@keyframes rotateGradient {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Contenedor del formulario */
+.contenedor-auth {
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.tarjeta-auth {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta-auth::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--neon-gradient);
+    box-shadow: var(--neon-glow);
+}
+
+/* Header del formulario */
+.header-auth {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.header-auth h1 {
+    background: var(--neon-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: var(--neon-glow);
+}
+
+.header-auth p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Formulario */
+.formulario-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.grupo-input label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.grupo-input input,
+.grupo-input select {
+    background: var(--darker-bg);
+    border: 2px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.grupo-input input:focus,
+.grupo-input select:focus {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1);
+    background: var(--card-bg);
+}
+
+.grupo-input input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Select personalizado */
+.grupo-input select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300d4ff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+.grupo-input select option {
+    background: var(--darker-bg);
+    color: var(--text-primary);
+    padding: 1rem;
+}
+
+/* Botones */
+.boton-auth {
+    background: var(--neon-gradient);
+    color: var(--dark-bg);
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--card-shadow);
+    margin-top: 1rem;
+}
+
+.boton-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--neon-glow-strong);
+}
+
+.boton-auth:active {
+    transform: translateY(0);
+}
+
+.boton-auth:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Enlaces */
+.enlaces-auth {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.enlaces-auth a {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.enlaces-auth a:hover {
+    color: var(--neon-blue);
+    text-shadow: var(--neon-glow);
+}
+
+/* Mensajes */
+.mensaje {
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    display: none;
+}
+
+.mensaje.visible {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mensaje.exito {
+    background: rgba(0, 255, 127, 0.1);
+    border: 1px solid rgba(0, 255, 127, 0.3);
+    color: #00ff7f;
+}
+
+.mensaje.error {
+    background: rgba(255, 59, 48, 0.1);
+    border: 1px solid rgba(255, 59, 48, 0.3);
+    color: #ff3b30;
+}
+
+.mensaje.advertencia {
+    background: rgba(255, 204, 0, 0.1);
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    color: #ffcc00;
+}
+
+/* Sección de Gestión de Usuarios */
+.seccion-gestion {
+    min-height: 100vh;
+    padding: 120px 2rem 2rem;
+    background: var(--dark-bg);
+}
+
+.contenedor-gestion {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-gestion {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header-gestion h1 {
+    background: var(--neon-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-gestion p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Tabla de usuarios */
+.contenedor-tabla {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    overflow-x: auto;
+}
+
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-usuarios thead {
+    border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+.tabla-usuarios th {
+    color: var(--neon-cyan);
+    text-align: left;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tabla-usuarios tbody tr {
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tabla-usuarios tbody tr:hover {
+    background: var(--glass-bg);
+}
+
+.tabla-usuarios td {
+    padding: 1.2rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Estados */
+.estado-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.estado-badge.activo {
+    background: rgba(0, 255, 127, 0.1);
+    color: #00ff7f;
+    border: 1px solid rgba(0, 255, 127, 0.3);
+}
+
+.estado-badge.inactivo {
+    background: rgba(255, 59, 48, 0.1);
+    color: #ff3b30;
+    border: 1px solid rgba(255, 59, 48, 0.3);
+}
+
+.plan-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: var(--neon-gradient);
+    color: var(--dark-bg);
+}
+
+/* Botones de acción */
+.acciones {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.boton-accion {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton-accion.activar {
+    background: rgba(0, 255, 127, 0.2);
+    color: #00ff7f;
+    border: 1px solid rgba(0, 255, 127, 0.3);
+}
+
+.boton-accion.activar:hover {
+    background: rgba(0, 255, 127, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 127, 0.3);
+}
+
+.boton-accion.desactivar {
+    background: rgba(255, 59, 48, 0.2);
+    color: #ff3b30;
+    border: 1px solid rgba(255, 59, 48, 0.3);
+}
+
+.boton-accion.desactivar:hover {
+    background: rgba(255, 59, 48, 0.3);
+    box-shadow: 0 0 15px rgba(255, 59, 48, 0.3);
+}
+
+/* Loading Spinner */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--neon-blue);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tarjeta-auth {
+        padding: 2rem 1.5rem;
+    }
+
+    .header-auth h1 {
+        font-size: 1.8rem;
+    }
+
+    .contenedor-tabla {
+        padding: 1rem;
+    }
+
+    .tabla-usuarios {
+        font-size: 0.85rem;
+    }
+
+    .tabla-usuarios th,
+    .tabla-usuarios td {
+        padding: 0.8rem 0.5rem;
+    }
+
+    .acciones {
+        flex-direction: column;
+    }
+}

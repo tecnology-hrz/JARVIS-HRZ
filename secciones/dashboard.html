@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - JARVIS HRZ</title>
+    <link rel="stylesheet" href="../componentes/css/General.css">
+    <link rel="stylesheet" href="../componentes/css/login.css">
+    <link rel="stylesheet" href="../componentes/css/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .dashboard-container {
+            min-height: 100vh;
+            padding: 120px 2rem 2rem;
+            background: var(--dark-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+            animation: rotateGradient 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotateGradient {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .dashboard-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .dashboard-header h1 {
+            background: var(--neon-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: var(--neon-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dashboard-header h1 i {
+            background: var(--neon-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+            margin-right: 1rem;
+        }
+
+        .welcome-text {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dashboard-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--neon-gradient);
+            box-shadow: var(--neon-glow);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--neon-glow-strong);
+            border-color: var(--neon-cyan);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: var(--neon-blue);
+            text-shadow: var(--neon-glow);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .card-content {
+            color: var(--text-secondary);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .info-value {
+            color: var(--neon-cyan);
+            font-weight: 600;
+        }
+
+        .plan-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid;
+        }
+
+        .plan-basico {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+        }
+
+        .plan-premium {
+            background: rgba(0, 128, 255, 0.1);
+            color: var(--electric-blue);
+            border-color: var(--electric-blue);
+        }
+
+        .plan-lifetime {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            border-color: #ffd700;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            border: 1px solid;
+        }
+
+        .status-activo {
+            background: rgba(0, 255, 0, 0.1);
+            color: #00ff00;
+            border-color: #00ff00;
+        }
+
+        .status-vencido {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff4444;
+            border-color: #ff4444;
+        }
+
+        .dashboard-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-dashboard {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--card-bg);
+            color: var(--text-primary);
+        }
+
+        .btn-primary {
+            background: var(--glass-gradient);
+            color: var(--neon-blue);
+            border-color: var(--neon-blue);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: var(--neon-glow);
+            background: var(--neon-gradient);
+            color: var(--dark-bg);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text-secondary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+            box-shadow: var(--neon-glow);
+        }
+
+        .btn-logout {
+            background: rgba(255, 68, 68, 0.1);
+            color: #ff4444;
+            border-color: #ff4444;
+        }
+
+        .btn-logout:hover {
+            background: #ff4444;
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+        }
+
+        .alert {
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--card-bg);
+            border: 1px solid;
+        }
+
+        .alert-warning {
+            border-color: #ffc107;
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+
+        .alert-info {
+            border-color: var(--neon-cyan);
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--neon-cyan);
+        }
+
+        .tiempo-restante-box {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .dias-numero {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--neon-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: var(--neon-glow);
+        }
+
+        .dias-texto {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 100px 1rem 2rem;
+            }
+
+            .dashboard-header h1 {
+                font-size: 2rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="menu-navegacion">
+        <div class="contenedor-menu">
+            <!-- Logo -->
+            <div class="logo">
+                <h2>JARVIS - HRZ</h2>
+            </div>
+            
+            <!-- Menú Desktop -->
+            <ul class="menu-desktop">
+                <li><a href="../index.html" class="enlace-menu">Inicio</a></li>
+                <li><a href="caracteristicas.html" class="enlace-menu">Características</a></li>
+                <li><a href="precios.html" class="enlace-menu">Precios</a></li>
+                <li><a href="descargar.html" class="enlace-menu">Descargar</a></li>
+                <li><a href="creador.html" class="enlace-menu">Creador</a></li>
+                <li><a href="dashboard.html" class="enlace-menu activo">Dashboard</a></li>
+            </ul>
+            
+            <!-- Botón Hamburger para móvil -->
+            <button class="boton-hamburger" id="boton-hamburger">
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+            </button>
+        </div>
+        
+        <!-- Overlay para cerrar el menú -->
+        <div class="overlay-menu" id="overlay-menu"></div>
+        
+        <!-- Menú Móvil Lateral -->
+        <div class="menu-movil" id="menu-movil">
+            <div class="header-menu-movil">
+                <h3>Menú</h3>
+                <button class="boton-cerrar-movil" id="boton-cerrar-movil">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="lista-movil">
+                <li><a href="../index.html" class="enlace-movil">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a></li>
+                <li><a href="caracteristicas.html" class="enlace-movil">
+                    <i class="fas fa-star"></i>
+                    <span>Características</span>
+                </a></li>
+                <li><a href="precios.html" class="enlace-movil">
+                    <i class="fas fa-tag"></i>
+                    <span>Precios</span>
+                </a></li>
+                <li><a href="descargar.html" class="enlace-movil">
+                    <i class="fas fa-download"></i>
+                    <span>Descargar</span>
+                </a></li>
+                <li><a href="creador.html" class="enlace-movil">
+                    <i class="fas fa-code"></i>
+                    <span>Creador</span>
+                </a></li>
+                <li><a href="dashboard.html" class="enlace-movil activo">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-content">
+            <!-- Header del Dashboard -->
+            <div class="dashboard-header">
+                <h1><i class="fas fa-tachometer-alt"></i>Dashboard</h1>
+                <p class="welcome-text">Bienvenido, <span id="user-name-header">Usuario</span></p>
+            </div>
+
+            <!-- Alertas -->
+            <div id="alert-container" style="max-width: 1200px; margin: 0 auto;"></div>
+
+            <!-- Grid de Cards -->
+            <div class="dashboard-grid">
+                <!-- Card de Información Personal -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-user card-icon"></i>
+                        <h2 class="card-title">Información Personal</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <span class="info-label">Nombre:</span>
+                            <span class="info-value" id="user-name">Cargando...</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value" id="user-email">Cargando...</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Estado:</span>
+                            <span id="user-status">Cargando...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card de Plan Actual -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-crown card-icon"></i>
+                        <h2 class="card-title">Plan Actual</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <span class="info-label">Plan:</span>
+                            <span id="user-plan">Cargando...</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Fecha de Inicio:</span>
+                            <span class="info-value" id="fecha-inicio">Cargando...</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Fecha de Vencimiento:</span>
+                            <span class="info-value" id="fecha-vencimiento">Cargando...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card de Tiempo Restante -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-clock card-icon"></i>
+                        <h2 class="card-title">Tiempo Restante</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="tiempo-restante-box">
+                            <div class="dias-numero" id="dias-restantes">--</div>
+                            <div class="dias-texto">Días restantes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Acciones del Dashboard -->
+            <div style="max-width: 1200px; margin: 2rem auto 0;">
+                <div class="dashboard-actions">
+                    <a href="../index.html" class="btn-dashboard btn-secondary">
+                        <i class="fas fa-home"></i> Ir al Inicio
+                    </a>
+                    <a href="precios.html" class="btn-dashboard btn-primary">
+                        <i class="fas fa-rocket"></i> Actualizar Plan
+                    </a>
+                    <button onclick="cerrarSesion()" class="btn-dashboard btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../componentes/js/protection.js"></script>
+    <script src="../componentes/js/menu.js"></script>
+    <script src="../componentes/js/session-check.js"></script>
+    <script type="module" src="../componentes/js/dashboard.js"></script>
+</body>
+</html>
+

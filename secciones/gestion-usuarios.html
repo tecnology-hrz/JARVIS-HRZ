@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - JARVIS HRZ</title>
+    <link rel="stylesheet" href="../componentes/css/General.css">
+    <link rel="stylesheet" href="../componentes/css/login.css">
+    <link rel="stylesheet" href="../componentes/css/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="menu-navegacion">
+        <div class="contenedor-menu">
+            <!-- Logo -->
+            <div class="logo">
+                <h2>JARVIS - HRZ</h2>
+            </div>
+            
+            <!-- Menú Desktop -->
+            <ul class="menu-desktop">
+                <li><a href="../index.html" class="enlace-menu">Inicio</a></li>
+                <li><a href="caracteristicas.html" class="enlace-menu">Características</a></li>
+                <li><a href="precios.html" class="enlace-menu">Precios</a></li>
+                <li><a href="descargar.html" class="enlace-menu">Descargar</a></li>
+                <li><a href="creador.html" class="enlace-menu">Creador</a></li>
+                <li><a href="iniciar-sesion.html" class="enlace-menu boton-iniciar">Iniciar Sesión</a></li>
+            </ul>
+            
+            <!-- Botón Hamburger para móvil -->
+            <button class="boton-hamburger" id="boton-hamburger">
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+                <span class="linea-hamburger"></span>
+            </button>
+        </div>
+        
+        <!-- Overlay para cerrar el menú -->
+        <div class="overlay-menu" id="overlay-menu"></div>
+        
+        <!-- Menú Móvil Lateral -->
+        <div class="menu-movil" id="menu-movil">
+            <div class="header-menu-movil">
+                <h3>Menú</h3>
+                <button class="boton-cerrar-movil" id="boton-cerrar-movil">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="lista-movil">
+                <li><a href="../index.html" class="enlace-movil">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a></li>
+                <li><a href="caracteristicas.html" class="enlace-movil">
+                    <i class="fas fa-star"></i>
+                    <span>Características</span>
+                </a></li>
+                <li><a href="precios.html" class="enlace-movil">
+                    <i class="fas fa-tag"></i>
+                    <span>Precios</span>
+                </a></li>
+                <li><a href="descargar.html" class="enlace-movil">
+                    <i class="fas fa-download"></i>
+                    <span>Descargar</span>
+                </a></li>
+                <li><a href="creador.html" class="enlace-movil">
+                    <i class="fas fa-code"></i>
+                    <span>Creador</span>
+                </a></li>
+                <li><a href="iniciar-sesion.html" class="enlace-movil boton-iniciar-movil">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Iniciar Sesión</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección de Gestión -->
+    <section class="seccion-gestion">
+        <div class="contenedor-gestion">
+            <div class="header-gestion">
+                <h1>Gestión de Usuarios</h1>
+                <p>Administra todos los usuarios registrados en JARVIS-HRZ</p>
+            </div>
+
+            <!-- Mensaje de estado -->
+            <div id="mensaje" class="mensaje"></div>
+
+            <!-- Botón para verificar cuentas vencidas -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <button id="verificar-vencidos" class="boton-auth" style="display: inline-block;">
+                    <i class="fas fa-sync-alt"></i> Verificar Cuentas Vencidas
+                </button>
+            </div>
+
+            <!-- Tabla de Usuarios -->
+            <div class="contenedor-tabla">
+                <table class="tabla-usuarios">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Plan</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Vencimiento</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-cuerpo">
+                        <tr>
+                            <td colspan="7" style="text-align: center; padding: 2rem;">
+                                <div class="loading"></div>
+                                <p style="margin-top: 1rem;">Cargando usuarios...</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="../componentes/js/protection.js"></script>
+    <script src="../componentes/js/menu.js"></script>
+    <script src="../componentes/js/session-check.js"></script>
+    <script type="module" src="../componentes/js/gestion.js"></script>
+</body>
+</html>
+
