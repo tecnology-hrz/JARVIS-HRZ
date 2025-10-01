@@ -3,7 +3,6 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://jarvis-hrz.com/sitemap.xml
-Sitemap: https://jarvis-hrz.com/author-sitemap.xml
 Sitemap: https://jarvis-hrz.com/image-sitemap.xml
 
 # Permitir acceso a archivos CSS y JS

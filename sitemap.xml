@@ -25,6 +25,11 @@
         <lastmod>2024-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://jarvis-hrz.com/imagenes/2.png</image:loc>
+            <image:title>Características JARVIS-HRZ por Andrés Hincapié Ruiz</image:title>
+            <image:caption>Funcionalidades avanzadas del asistente inteligente</image:caption>
+        </image:image>
     </url>
     
     <!-- Precios -->
@@ -33,6 +38,11 @@
         <lastmod>2024-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://jarvis-hrz.com/imagenes/1.ico</image:loc>
+            <image:title>Planes JARVIS-HRZ - Creado por Andrés Hincapié Ruiz</image:title>
+            <image:caption>Precios y planes del asistente inteligente</image:caption>
+        </image:image>
     </url>
     
     <!-- Descargar -->
