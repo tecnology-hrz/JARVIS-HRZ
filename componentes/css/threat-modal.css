@@ -1,0 +1,458 @@
+/* Modal de Amenaza Tecnológica */
+.threat-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 8, 20, 0.95), rgba(20, 0, 40, 0.98));
+    backdrop-filter: blur(15px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    animation: threatPulse 2s infinite;
+}
+
+@keyframes threatPulse {
+    0%, 100% { background: linear-gradient(135deg, rgba(0, 8, 20, 0.95), rgba(20, 0, 40, 0.98)); }
+    50% { background: linear-gradient(135deg, rgba(20, 0, 0, 0.98), rgba(40, 0, 20, 0.95)); }
+}
+
+.threat-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.threat-modal-container {
+    background: linear-gradient(145deg, #1a0a1a 0%, #2d0d2d 50%, #1a0845 100%);
+    border: 2px solid #ff0044;
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 95%;
+    box-shadow: 
+        0 0 50px rgba(255, 0, 68, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    position: relative;
+    transform: scale(0.8) rotateX(15deg);
+    transition: all 0.6s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.threat-modal-overlay.active .threat-modal-container {
+    transform: scale(1) rotateX(0deg);
+}
+
+/* Barra superior tecnológica */
+.threat-modal-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #ff0044 0%, #ff4444 50%, #ff0088 100%);
+    box-shadow: 0 0 20px rgba(255, 0, 68, 0.8);
+    border-radius: 20px 20px 0 0;
+    animation: scanline 2s infinite;
+}
+
+@keyframes scanline {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Contador de pensamiento */
+.thought-countdown {
+    position: absolute;
+    top: -30px;
+    right: -10px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #ff0044, #cc0033);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 3px solid #fff;
+    box-shadow: 0 0 30px rgba(255, 0, 68, 0.8);
+    animation: countdownPulse 1s infinite;
+}
+
+@keyframes countdownPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Header del modal */
+.modal-header-threat {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-icon-threat {
+    font-size: 4rem;
+    color: #ff0044;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px rgba(255, 0, 68, 0.8));
+    animation: iconBlink 1.5s infinite;
+}
+
+@keyframes iconBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+.modal-title-threat {
+    font-size: 1.4rem;
+    color: #ff4444;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: titleFlicker 3s infinite;
+}
+
+@keyframes titleFlicker {
+    0%, 90% { opacity: 1; }
+    95% { opacity: 0.5; }
+}
+
+.modal-message-threat {
+    color: #ffaa44;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Caja de alarma */
+.alert-box {
+    background: linear-gradient(135deg, rgba(255, 0, 68, 0.2), rgba(255, 68, 68, 0.1));
+    border: 2px solid #ff4444;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.alert-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: scanEffect 3s infinite;
+}
+
+@keyframes scanEffect {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+.alert-icon {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: alertBounce 1s infinite;
+}
+
+@keyframes alertBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.alert-content h4 {
+    color: #ff4444;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.alert-content p {
+    color: #ffaa88;
+    margin-bottom: 1rem;
+}
+
+.threat-level {
+    background: #ff0044;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.ip-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ip-label {
+    color: #ffcc44;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ip-address {
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff88;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #00ff88;
+    animation: ipGlow 2s infinite;
+}
+
+@keyframes ipGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.8); }
+}
+
+/* Sección de advertencias */
+.warning-section {
+    margin: 2rem 0;
+}
+
+.warning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.warning-item {
+    background: rgba(255, 0, 68, 0.1);
+    border: 1px solid rgba(255, 0, 68, 0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.warning-item:hover {
+    background: rgba(255, 0, 68, 0.2);
+    transform: translateY(-2px);
+}
+
+.warning-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 68, 0.6));
+}
+
+.warning-text h5 {
+    color: #ff4444;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.warning-text p {
+    color: #ffaa88;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Botones de acción */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    justify-content: center;
+}
+
+.button-confess,
+.button-close,
+.btn-danger-final {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.button-confess {
+    background: linear-gradient(135deg, #ffaa44, #ff8844);
+    color: white;
+    border: 2px solid #ffaa44;
+}
+
+.button-confess:hover {
+    background: linear-gradient(135deg, #ff8844, #ff6644);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 136, 68, 0.6);
+}
+
+.button-close {
+    background: linear-gradient(135deg, #ff2244, #ff0044);
+    color: white;
+    border: 2px solid #ff2244;
+}
+
+.button-close:hover {
+    background: linear-gradient(135deg, #ff0044, #cc0033);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 68, 0.6);
+}
+
+.btn-danger-final {
+    background. linear-gradient(135deg, #cc0033, #990022);
+    color: white;
+    border: 2px solid #ff0044;
+    width: 100%;
+    justify-content: center;
+    font-size: 1.1rem;
+    animation: dangerPulse 1s infinite;
+}
+
+@keyframes dangerPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.btn-danger-final:hover {
+    background: linear-gradient(135deg, #990022, #660011);
+    box-shadow: 0 0 30px rgba(255, 0, 68, 0.8);
+}
+
+/* Sección final */
+.remaining-section {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 0, 68, 0.3);
+}
+
+.remaining-text {
+    color: #ffaa44;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.last-chance {
+    color: #ff4444;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Barra de progreso */
+.countdown-bar {
+    background: rgba(0, 0, 0, 0.5);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.progresando-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ff0044, #ff4444, #ff0088);
+    width: 33.33%;
+    transition: width 1s ease;
+    border-radius: 4px;
+    animation: barGlow 2s infinite;
+}
+
+@keyframes barGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 68, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 0, 68, 0.8); }
+}
+
+/* Estados adicionales */
+.warning-stage .threat-modal-container {
+    border-color: #ff8844;
+    box-shadow: 0 0 60px rgba(255, 136, 68, 0.4);
+}
+
+.danger-stage .threat-modal-container {
+    border-color: #ff4444;
+    box-shadow: 0 0 70px rgba(255, 68, 68, 0.6);
+    animation: dangerShake 0.5s infinite;
+}
+
+@keyframes dangerShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+.critical-stage .threat-modal-container {
+    border-color: #ff0044;
+    box-shadow: 0 0 80px rgba(255, 0, 68, 0.8);
+}
+
+.espanto-stage {
+    animation: ultimateGlow 1s infinite;
+}
+
+@keyframes ultimateGlow {
+    0%, 100% { 
+        box-shadow: 0 0 100px rgba(255, 0, 68, 0.8);
+        border-color: #ff0044;
+    }
+    50% { 
+        box-shadow: 0 0 150px rgba(255, 0, 136, 1);
+        border-color: #ff0088;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .threat-modal-container {
+        padding: 1.5rem;
+        width: 98%;
+        max-width: 500px;
+    }
+    
+    .modal-title-threat {
+        font-size: 1.2rem;
+    }
+    
+    .warning-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .button-confess,
+    .button-close {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .thought-countdown {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        top: -25px;
+        right: -5px;
+    }
+}

@@ -1,0 +1,275 @@
+/* Modal de Amenaza Compacto */
+.threat-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 8, 20, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.threat-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.threat-modal-container {
+    background: linear-gradient(135deg, #1a0a1a 0%, #2d0d2d 100%);
+    border: 2px solid #ff2244;
+    border-radius: 15px;
+    padding: 1.5rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 
+        0 0 30px rgba(255, 34, 68, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.05);
+    position: relative;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
+    font-family: 'Arial', sans-serif;
+}
+
+.threat-modal-overlay.active .threat-modal-container {
+    transform: scale(1);
+}
+
+/* Barra superior */
+.threat-modal-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff2244 0%, #ff4444 100%);
+    border-radius: 15px 15px 0 0;
+    animation: scanline 2s infinite;
+}
+
+@keyframes scanline {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Header compacto */
+.modal-compact-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.compact-icon {
+    width: 30px;
+    height: 30px;
+    background: #ff2244;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: iconPulse 1.5s infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.modal-compact-header h3 {
+    color: #ff4444;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Contenido compacto */
+.modal-compact-content {
+    text-align: center;
+}
+
+.modal-compact-content p {
+    color: #ffaa88;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Información de amenaza */
+.threat-info {
+    background: rgba(255, 34, 68, 0.1);
+    border: 1px solid rgba(255, 34, 68, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.threat-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.threat-detail:last-child {
+    margin-bottom: 0;
+}
+
+.threat-detail strong {
+    color: #ffaa44;
+}
+
+.threat-level {
+    background: #ff2244;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.ip-display {
+    background: rgba(0, 0, 0, 0.6);
+    color: #ff4444;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #ff4444;
+    animation: ipGlow 2s infinite;
+    font-weight: bold;
+}
+
+@keyframes ipGlow {
+    0%, 100% { box-shadow: 0 0 5px rgba(255, 68, 68, 0.3); }
+    50% { box-shadow: 0 0 10px rgba(255, 68, 68, 0.6); }
+}
+
+/* Texto de advertencia */
+.warning-text {
+    color: #ff8844;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    background: rgba(255, 136, 68, 0.1);
+    border: 1px solid rgba(255, 136, 68, 0.3);
+    border-radius: 6px;
+}
+
+/* Contador compacto */
+.compact-countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    color: #ffaa44;
+    font-size: 0.9rem;
+}
+
+#countdown-number {
+    background: #ff2244;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    animation: countdownPulse 1s infinite;
+}
+
+@keyframes countdownPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Botones compactos */
+.compact-buttons {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.btn-confess,
+.btn-deny {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-confess {
+    background: linear-gradient(135deg, #ff8844, #ff6644);
+    color: white;
+    border: 1px solid #ff8844;
+}
+
+.btn-confess:hover {
+    background: linear-gradient(135deg, #ff6644, #ff4444);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(255, 136, 68, 0.4);
+}
+
+.btn-deny {
+    background: linear-gradient(135deg, #ff2244, #cc0033);
+    color: white;
+    border: 1px solid #ff2244;
+}
+
+.btn-deny:hover {
+    background: linear-gradient(135deg, #cc0033, #990022);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(255, 34, 68, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .threat-modal-container {
+        padding: 1.2rem;
+        width: 95%;
+    }
+    
+    .modal-compact-header h3 {
+        font-size: 1rem;
+    }
+    
+    .compact-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-confess,
+    .btn-deny {
+        width: 100%;
+    }
+    
+    .threat-detail {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+}

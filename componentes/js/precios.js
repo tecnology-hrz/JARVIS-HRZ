@@ -82,9 +82,141 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Función para mostrar modal de WhatsApp
+    function mostrarModalWhatsApp(plan) {
+        const modalOverlay = document.createElement('div');
+        modalOverlay.className = 'modal-overlay';
+        
+        const modalContainer = document.createElement('div');
+        modalContainer.className = 'modal-container';
+        
+        // Determinar el tipo de facturación según el toggle actual (solo para planes con suscripción)
+        const toggleInput = document.getElementById('toggle-precios');
+        const tipoFacturacion = toggleInput.checked ? 'anual' : 'mensual';
+        const esLifetime = plan.toLowerCase().includes('lifetime');
+        
+        modalContainer.innerHTML = `
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3 class="modal-title">Redirección a WhatsApp</h3>
+                <p class="modal-message">
+                    Serás redirigido al WhatsApp de nuestro asesor para realizar el pago del <strong>${plan}</strong> de manera segura y personalizada.
+                </p>
+                ${!esLifetime ? `
+                <p class="modal-message" style="margin-top: 1rem; font-size: 1rem; color: var(--neon-blue);">
+                    Tipo de suscripción: <strong>${tipoFacturacion.charAt(0).toUpperCase() + tipoFacturacion.slice(1)}</strong>
+                </p>
+                ` : `
+                <p class="modal-message" style="margin-top: 1rem; font-size: 1rem; color: var(--neon-blue);">
+                    Pago: <strong>Único de por vida</strong>
+                </p>
+                `}
+                <p class="modal-message" style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); border-top: 1px solid rgba(0, 212, 255, 0.2); padding-top: 1rem;">
+                    Número de contacto: <strong>+57 350 7870584</strong> (Colombia)
+                </p>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-cancel" onclick="cerrarModal()">
+                    <i class="fas fa-times"></i>
+                    Cancelar
+                </button>
+                <button class="modal-btn modal-btn-confirm" onclick="redirigirWhatsApp('${plan}', '${esLifetime ? 'lifetime' : tipoFacturacion}')">
+                    <i class="fab fa-whatsapp"></i>
+                    Ir a WhatsApp
+                </button>
+            </div>
+        `;
+        
+        modalOverlay.appendChild(modalContainer);
+        document.body.appendChild(modalOverlay);
+        
+        // Activar modal con animación
+        setTimeout(() => {
+            modalOverlay.classList.add('active');
+        }, 10);
+        
+        // Cerrar modal al hacer click en el overlay
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                cerrarModal();
+            }
+        });
+    }
+    
+    // Función para cerrar modal
+    function cerrarModal() {
+        const modalOverlay = document.querySelector('.modal-overlay');
+        if (modalOverlay) {
+            modalOverlay.classList.remove('active');
+            setTimeout(() => {
+                modalOverlay.remove();
+            }, 300);
+        }
+    }
+    
+    // Función para redirigir a WhatsApp
+    function redirigirWhatsApp(plan, tipoFacturacion) {
+        const numeroWhatsApp = '573507870584';
+        
+        // Crear mensaje personalizado según el tipo de plan
+        let mensaje;
+        if (tipoFacturacion === 'lifetime') {
+            mensaje = `Hola, me interesa adquirir el plan ${plan} (pago único de por vida) de JARVIS-HRZ. Por favor, proporcióname información sobre el proceso de pago y activación.`;
+        } else {
+            mensaje = `Hola, me interesa adquirir el plan ${plan} (${tipoFacturacion}) de JARVIS-HRZ. Por favor, proporcióname información sobre el proceso de pago y activación.`;
+        }
+        
+        const mensajeEncoded = encodeURIComponent(mensaje);
+        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeEncoded}`;
+        
+        // Crear enlace temporal para redirección
+        const enlaceTemporal = document.createElement('a');
+        enlaceTemporal.href = urlWhatsApp;
+        enlaceTemporal.target = '_blank';
+        enlaceTemporal.click();
+        
+        cerrarModal();
+    }
+    
+    // Hacer funciones globales para poder llamarlas desde el HTML
+    window.cerrarModal = cerrarModal;
+    window.redirigirWhatsApp = redirigirWhatsApp;
+    
     // Efectos de click para los botones
-    const botones = document.querySelectorAll('.boton-plan');
-    botones.forEach(boton => {
+    const botonesComunes = document.querySelectorAll('.boton-plan:not(.boton-pago)');
+    botonesComunes.forEach(boton => {
+        boton.addEventListener('click', function(e) {
+            // Si es un enlace, no prevenir el comportamiento por defecto
+            if (this.tagName === 'A') {
+                return;
+            }
+            e.preventDefault();
+            
+            // Efecto de ripple para enlaces simulados como botones
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+    
+    // Manejar botones de pago
+    const botonesPago = document.querySelectorAll('.boton-pago');
+    botonesPago.forEach(boton => {
         boton.addEventListener('click', function(e) {
             e.preventDefault();
             
@@ -102,13 +234,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             this.appendChild(ripple);
             
-            // Remover ripple después de la animación
             setTimeout(() => {
                 ripple.remove();
             }, 600);
             
-            // Aquí puedes agregar la lógica de redirección o procesamiento
-            console.log('Plan seleccionado:', this.textContent.trim());
+            // Mostrar modal de WhatsApp
+            const planSeleccionado = this.getAttribute('data-plan');
+            mostrarModalWhatsApp(planSeleccionado);
         });
     });
     

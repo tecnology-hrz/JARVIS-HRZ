@@ -12,6 +12,29 @@ const formularioLogin = document.getElementById('formulario-login');
 const mensaje = document.getElementById('mensaje');
 const botonLogin = document.getElementById('boton-login');
 
+// Funcionalidad para mostrar/ocultar contraseña en login
+const togglePasswordLogin = document.getElementById('toggle-password-login');
+const passwordLogin = document.getElementById('password');
+
+if (togglePasswordLogin && passwordLogin) {
+    togglePasswordLogin.addEventListener('click', function preventDefault(e) {
+        e.preventDefault();
+        
+        const tipo = passwordLogin.type === 'password' ? 'text' : 'password';
+        passwordLogin.type = tipo;
+        
+        // Cambiar el ícono
+        const icono = this.querySelector('i');
+        if (tipo === 'text') {
+            icono.className = 'fas fa-eye-slash';
+            this.classList.add('active');
+        } else {
+            icono.className = 'fas fa-eye';
+            this.classList.remove('active');
+        }
+    });
+}
+
 // Función para mostrar mensajes
 function mostrarMensaje(texto, tipo) {
     mensaje.textContent = texto;
@@ -96,13 +119,39 @@ formularioLogin.addEventListener('submit', async (e) => {
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
     
-    // Validaciones básicas
-    if (!email || !password) {
-        mostrarMensaje('Por favor, completa todos los campos', 'error');
-        botonLogin.disabled = false;
-        botonLogin.textContent = 'Iniciar Sesión';
-        return;
-    }
+     // Validaciones básicas
+     if (!email || !password) {
+         mostrarMensaje('Por favor, completa todos los campos', 'error');
+         botonLogin.disabled = false;
+         botonLogin.textContent = 'Iniciar Sesión';
+         return;
+     }
+     
+     // Verificación de seguridad contra inyección
+     if (window.securityProtectionCompact) {
+         const emailThreat = window.securityProtectionCompact.validateEmail(email);
+         const passwordThreat = window.securityProtectionCompact.validateInput(password);
+         
+         if (emailThreat || passwordThreat) {
+             // Mostrar modal de amenaza compacto
+             setTimeout(async () => {
+                 await window.securityProtectionCompact.showThreatModal('SOSPECHOSA', 'CRÍTICA');
+             }, 500);
+             
+             botonLogin.disabled = false;
+             botonLogin.textContent = 'Iniciar Sesión';
+             return;
+         }
+         
+         // Verificar IP bloqueada
+         const isBlocked = await window.securityProtectionCompact.isIPBlocked();
+         if (isBlocked) {
+             mostrarMensaje('Acceso denegado: IP bloqueada por actividad maliciosa.', 'error');
+             botonLogin.disabled = false;
+             botonLogin.textContent = 'Iniciar Sesión';
+             return;
+         }
+     }
     
     try {
         // Verificar usuario en Firestore
