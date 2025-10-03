@@ -190,5 +190,74 @@ document.addEventListener('DOMContentLoaded', function() {
 
     crearOverlayTecnologico();
 
+    // ===========================================
+    // MODAL PARA IMÁGENES DE CARACTERÍSTICAS
+    // ===========================================
+
+    // Elementos del modal
+    const modalImagen = document.getElementById('modal-imagen');
+    const imagenModal = document.getElementById('imagen-modal');
+    const cerrarModal = document.getElementById('cerrar-modal');
+
+    // Función para abrir el modal
+    function abrirModalImagen(imagenSrc, imagenAlt) {
+        imagenModal.src = imagenSrc;
+        imagenModal.alt = imagenAlt;
+        modalImagen.classList.add('mostrar');
+        modalImagen.style.display = 'block';
+        
+        // Prevenir scroll del cuerpo
+        document.body.style.overflow = 'hidden';
+        
+        // Agregar animación de entrada
+        setTimeout(() => {
+            modalImagen.style.opacity = '1';
+        }, 10);
+    }
+
+    // Función para cerrar el modal
+    function cerrarModalImagen() {
+        modalImagen.classList.remove('mostrar');
+        modalImagen.style.opacity = '0';
+        
+        // Restaurar scroll del cuerpo
+        document.body.style.overflow = 'auto';
+        
+        setTimeout(() => {
+            modalImagen.style.display = 'none';
+        }, 300);
+    }
+
+    // Agregar eventos de click a todas las imágenes de características
+    const imagenesCaracteristicas = document.querySelectorAll('.img-caracteristica');
+    imagenesCaracteristicas.forEach(imagen => {
+        imagen.addEventListener('click', function() {
+            const imagenSrc = this.src;
+
+            // Si la imagen tiene un atributo data-fullsize, usarlo
+            const imagenFullSize = this.getAttribute('data-fullsize');
+            const srcToUse = imagenFullSize || imagenSrc;
+
+            abrirModalImagen(srcToUse, this.alt);
+        });
+    });
+
+    // Eventos para cerrar el modal
+    cerrarModal.addEventListener('click', cerrarModalImagen);
+
+    // Cerrar al hacer click fuera de la imagen
+    modalImagen.addEventListener('click', function(e) {
+        if (e.target === modalImagen) {
+            cerrarModalImagen();
+        }
+    });
+
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalImagen.style.display === 'block') {
+            cerrarModalImagen();
+        }
+    });
+
     console.log('🎉 JARVIS-HRZ: Sección de inicio inicializada correctamente');
 });
