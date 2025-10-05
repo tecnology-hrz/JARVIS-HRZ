@@ -9,11 +9,18 @@ import {
     where,
     Timestamp
 } from './Config.js';
+import { deleteDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
 // Referencias a elementos del DOM
 const tablaCuerpo = document.getElementById('tabla-cuerpo');
 const mensaje = document.getElementById('mensaje');
 const botonVerificar = document.getElementById('verificar-vencidos');
+// Referencias al modal de confirmación
+const modal = document.getElementById('modal-confirmacion');
+const modalMensaje = document.getElementById('modal-mensaje');
+const modalBtnCancelar = document.getElementById('modal-cancelar');
+const modalBtnConfirmar = document.getElementById('modal-confirmar');
+let docIdAEliminar = null;
 
 // Función para mostrar mensajes
 function mostrarMensaje(texto, tipo) {
@@ -49,6 +56,47 @@ function cuentaVencida(fechaVencimiento) {
     const vencimiento = fechaVencimiento.toDate();
     
     return ahora > vencimiento;
+}
+
+// Control del modal de confirmación
+function abrirModalEliminar(mensajeTexto, docId) {
+    docIdAEliminar = docId;
+    if (modalMensaje) modalMensaje.textContent = mensajeTexto || '¿Seguro que deseas eliminar este usuario? Esta acción no se puede deshacer.';
+    modal.classList.add('active');
+}
+
+function cerrarModal() {
+    modal.classList.remove('active');
+    docIdAEliminar = null;
+}
+
+if (modalBtnCancelar) {
+    modalBtnCancelar.addEventListener('click', cerrarModal);
+}
+
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            cerrarModal();
+        }
+    });
+}
+
+if (modalBtnConfirmar) {
+    modalBtnConfirmar.addEventListener('click', async () => {
+        if (!docIdAEliminar) return;
+        try {
+            const ref = doc(db, 'usuarios', docIdAEliminar);
+            await deleteDoc(ref);
+            mostrarMensaje('Usuario eliminado correctamente', 'exito');
+            await cargarUsuarios();
+        } catch (error) {
+            console.error('Error al eliminar usuario:', error);
+            mostrarMensaje('Error al eliminar el usuario', 'error');
+        } finally {
+            cerrarModal();
+        }
+    });
 }
 
 // Función para cargar usuarios
@@ -97,6 +145,7 @@ async function cargarUsuarios() {
                                 ? '<button class="boton-accion desactivar" onclick="cambiarEstado(\'' + documento.id + '\', false)">Desactivar</button>'
                                 : '<button class="boton-accion activar" onclick="cambiarEstado(\'' + documento.id + '\', true)">Activar</button>'
                             }
+                            <button class="boton-accion eliminar" onclick="eliminarUsuario('${documento.id}')">Eliminar</button>
                         </div>
                     </td>
                 </tr>
@@ -138,6 +187,11 @@ window.cambiarEstado = async function(docId, nuevoEstado) {
         console.error('Error al cambiar estado:', error);
         mostrarMensaje('Error al cambiar el estado del usuario', 'error');
     }
+};
+
+// Función para eliminar un usuario definitivamente (abre modal)
+window.eliminarUsuario = function(docId) {
+    abrirModalEliminar('¿Seguro que deseas eliminar este usuario? Esta acción no se puede deshacer.', docId);
 };
 
 // Función para verificar y desactivar cuentas vencidas
