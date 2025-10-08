@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const preciosMensuales = {
         basico: { precio: '$0 USD', periodo: '/mes' },
         premium: { precio: '$5 USD', periodo: '/mes' },
-        lifetime: { precio: '$200 USD', periodo: 'único' }
+        lifetime: { precio: '$50 USD', periodo: 'único' }
     };
     
     // Precios anuales (con descuento del 20%)
     const preciosAnuales = {
         basico: { precio: '$0 USD', periodo: '/año' },
-        premium: { precio: '$50 USD', periodo: '/año', ahorro: 'Ahorras $10 USD' },
-        lifetime: { precio: '$200 USD', periodo: 'único' }
+        premium: { precio: '$26 USD', periodo: '/año', ahorro: 'Ahorras $34 USD' },
+        lifetime: { precio: '$50 USD', periodo: 'único' }
     };
     
     // Función para actualizar precios
