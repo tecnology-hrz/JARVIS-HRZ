@@ -173,7 +173,7 @@ body {
     position: relative;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    overflow: hidden;
+    overflow: visible;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -679,5 +679,264 @@ body {
     
     .precio-detalle {
         font-size: 1.3rem;
+    }
+}
+
+/* Banner Promocional */
+.banner-promo {
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.2) 0%, rgba(0, 212, 255, 0.2) 100%);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4), 0 0 60px rgba(255, 0, 150, 0.2);
+    animation: bannerPulse 3s ease-in-out infinite;
+}
+
+@keyframes bannerPulse {
+    0%, 100% { 
+        box-shadow: 0 0 30px rgba(0, 212, 255, 0.4), 0 0 60px rgba(255, 0, 150, 0.2);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 80px rgba(255, 0, 150, 0.3);
+        transform: scale(1.02);
+    }
+}
+
+.banner-promo::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.promo-icono {
+    width: 70px;
+    height: 70px;
+    background: var(--neon-gradient);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--dark-bg);
+    box-shadow: var(--neon-glow-strong);
+    flex-shrink: 0;
+    animation: iconoBounce 2s ease-in-out infinite;
+}
+
+@keyframes iconoBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.promo-contenido {
+    flex: 1;
+    text-align: center;
+}
+
+.promo-titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    background: var(--neon-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    text-shadow: var(--neon-glow);
+}
+
+.promo-texto {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.promo-texto strong {
+    color: var(--neon-cyan);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.promo-subtexto {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.promo-badge {
+    background: linear-gradient(135deg, #ff0096 0%, #ff4d4d 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(255, 0, 150, 0.6);
+    flex-shrink: 0;
+    animation: badgePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Etiqueta de promo en tarjeta */
+.etiqueta-promo {
+    position: absolute;
+    top: 20px;
+    right: -25px;
+    background: linear-gradient(135deg, #ff0096 0%, #ff4d4d 100%);
+    color: white;
+    padding: 0.4rem 2.5rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    transform: rotate(45deg);
+    box-shadow: 0 0 15px rgba(255, 0, 150, 0.6);
+    z-index: 10;
+    animation: etiquetaGlow 2s ease-in-out infinite;
+    letter-spacing: 1px;
+}
+
+@keyframes etiquetaGlow {
+    0%, 100% { box-shadow: 0 0 15px rgba(255, 0, 150, 0.6); }
+    50% { box-shadow: 0 0 25px rgba(255, 0, 150, 0.9); }
+}
+
+/* Tarjeta destacada */
+.tarjeta-precio.destacado {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4), 0 10px 40px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.tarjeta-precio.destacado:hover {
+    transform: scale(1.08) translateY(-5px);
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Promo especial en tarjeta */
+.promo-especial {
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.3) 0%, rgba(0, 212, 255, 0.3) 100%);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--neon-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    animation: promoGlow 2s ease-in-out infinite;
+}
+
+@keyframes promoGlow {
+    0%, 100% { 
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        border-color: var(--neon-cyan);
+    }
+    50% { 
+        box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
+        border-color: rgba(0, 255, 255, 0.8);
+    }
+}
+
+.promo-especial i {
+    color: #ff4d4d;
+    animation: fireFlicker 1s ease-in-out infinite;
+}
+
+@keyframes fireFlicker {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* Responsive para banner promo */
+@media (max-width: 768px) {
+    .banner-promo {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .promo-icono {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    
+    .promo-titulo {
+        font-size: 1.5rem;
+    }
+    
+    .promo-texto {
+        font-size: 1.1rem;
+    }
+    
+    .promo-badge {
+        padding: 0.8rem 1.2rem;
+        font-size: 1.2rem;
+    }
+    
+    .etiqueta-promo {
+        font-size: 0.75rem;
+        padding: 0.4rem 2.5rem;
+        top: 12px;
+        right: -30px;
+    }
+    
+    .tarjeta-precio.destacado {
+        transform: scale(1);
+    }
+    
+    .tarjeta-precio.destacado:hover {
+        transform: scale(1.02) translateY(-5px);
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-promo {
+        padding: 1rem;
+    }
+    
+    .promo-titulo {
+        font-size: 1.2rem;
+    }
+    
+    .promo-texto {
+        font-size: 1rem;
+    }
+    
+    .promo-subtexto {
+        font-size: 0.9rem;
+    }
+    
+    .promo-badge {
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .promo-especial {
+        font-size: 1rem;
+        padding: 0.6rem 0.8rem;
     }
 }
