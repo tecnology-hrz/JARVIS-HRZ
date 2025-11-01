@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const preciosMensuales = {
         basico: { precio: '$0 USD', periodo: '/mes' },
         premium: { precio: '$5 USD', periodo: '/mes' },
-        lifetime: { precio: '$50 USD', periodo: 'único' }
+        lifetime: { precio: '$25 USD', periodo: 'único' }
     };
     
     // Precios anuales (con descuento del 20%)
     const preciosAnuales = {
         basico: { precio: '$0 USD', periodo: '/año' },
         premium: { precio: '$26 USD', periodo: '/año', ahorro: 'Ahorras $34 USD' },
-        lifetime: { precio: '$50 USD', periodo: 'único' }
+        lifetime: { precio: '$25 USD', periodo: 'único' }
     };
     
     // Función para actualizar precios
@@ -163,7 +163,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Crear mensaje personalizado según el tipo de plan
         let mensaje;
         if (tipoFacturacion === 'lifetime') {
-            mensaje = `Hola, me interesa adquirir el plan ${plan} (pago único de por vida) de JARVIS-HRZ. Por favor, proporcióname información sobre el proceso de pago y activación.`;
+            mensaje = `🎉 Hola, me interesa adquirir el plan ${plan} con la PROMO del 50% OFF ($25 USD - pago único de por vida) de JARVIS-HRZ. Quiero aprovechar la oferta limitada para las 10 primeras personas. Por favor, proporcióname información sobre el proceso de pago y activación.`;
+        } else if (plan.toLowerCase().includes('premium')) {
+            mensaje = `🎉 Hola, me interesa adquirir el plan ${plan} con la PROMO DE NOVIEMBRE (3 meses por $5 USD - ${tipoFacturacion}) de JARVIS-HRZ. Por favor, proporcióname información sobre el proceso de pago y activación.`;
         } else {
             mensaje = `Hola, me interesa adquirir el plan ${plan} (${tipoFacturacion}) de JARVIS-HRZ. Por favor, proporcióname información sobre el proceso de pago y activación.`;
         }
