@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Función para redirigir a WhatsApp
     function redirigirWhatsApp(plan, tipoFacturacion) {
-        const numeroWhatsApp = '573507870584';
+        const numeroWhatsApp = '573167699072';
         
         // Crear mensaje personalizado según el tipo de plan
         let mensaje;
@@ -295,3 +295,4 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
