@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (tipoFacturacion === 'lifetime') {
             mensaje = `Hola, me interesa adquirir el plan ${plan} ($50 USD - pago único de por vida) de JARVIS-HRZ. Por favor, proporcióname información sobre el proceso de pago y activación.`;
         } else if (plan.toLowerCase().includes('premium')) {
-            mensaje = `🎉 Hola, me interesa adquirir el plan ${plan} con la PROMO DE NOVIEMBRE (3 meses por $5 USD - ${tipoFacturacion}) de JARVIS-HRZ. Por favor, proporcióname información sobre el proceso de pago y activación.`;
+            mensaje = `Hola, me interesa adquirir el plan ${plan} (${tipoFacturacion}) de JARVIS-HRZ. Por favor, proporcióname información sobre el proceso de pago y activación.`;
         } else {
             mensaje = `Hola, me interesa adquirir el plan ${plan} (${tipoFacturacion}) de JARVIS-HRZ. Por favor, proporcióname información sobre el proceso de pago y activación.`;
         }
