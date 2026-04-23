@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JARVIS-HRZ - En Mantenimiento</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>JARVIS-HRZ — Próximamente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="imagenes/1.ico">
     <style>
         :root {
@@ -12,235 +14,243 @@
             --neon-cyan: #00ffff;
             --electric-blue: #0080ff;
             --deep-blue: #001a33;
-            --dark-bg: #000814;
-            --darker-bg: #000510;
-            --card-bg: #001122;
-            --glass-bg: rgba(0, 212, 255, 0.05);
-            --text-primary: #ffffff;
-            --text-secondary: #a0c4ff;
+            --dark: #000814;
+            --darker: #000510;
+            --card: #001122;
+            --border: rgba(0, 212, 255, 0.2);
+            --text: #ffffff;
+            --text-dim: #a0c4ff;
+            --glow: 0 0 20px rgba(0, 212, 255, 0.5);
+            --glow-strong: 0 0 40px rgba(0, 212, 255, 0.8);
             --neon-gradient: linear-gradient(135deg, #00d4ff 0%, #00ffff 50%, #0080ff 100%);
-            --glass-gradient: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%);
-            --neon-glow: 0 0 20px rgba(0, 212, 255, 0.5);
-            --neon-glow-strong: 0 0 40px rgba(0, 212, 255, 0.8);
-            --card-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 50%, var(--deep-blue) 100%);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 50%, var(--deep-blue) 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--text-primary);
-            position: relative;
+            color: var(--text);
             overflow: hidden;
+            position: relative;
         }
 
         body::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(0, 255, 255, 0.08) 0%, transparent 50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 50%);
+            top: -200px; left: -100px;
             pointer-events: none;
         }
 
-        .container {
-            text-align: center;
-            padding: 40px;
-            max-width: 700px;
+        body::after {
+            content: '';
+            position: absolute;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(0,255,255,0.08) 0%, transparent 50%);
+            bottom: -150px; right: -100px;
+            pointer-events: none;
+        }
+
+        .card {
             position: relative;
             z-index: 2;
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 212, 255, 0.2);
+            background: var(--card);
+            border: 1px solid var(--border);
             border-radius: 30px;
+            padding: 3.5rem 3rem;
+            max-width: 560px;
+            width: 100%;
+            margin: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
             backdrop-filter: blur(10px);
-            box-shadow: var(--card-shadow);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--neon-cyan);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            box-shadow: var(--glow);
         }
 
         .logo {
-            font-size: 3rem;
-            font-weight: bold;
+            font-size: 2.6rem;
+            font-weight: 800;
             background: var(--neon-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 2rem;
-            text-shadow: var(--neon-glow);
+            margin-bottom: 1rem;
         }
 
-        .icon-container {
-            width: 120px;
-            height: 120px;
-            background: var(--neon-gradient);
-            border-radius: 50%;
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            box-shadow: var(--neon-glow-strong);
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        .icon-container i {
-            font-size: 60px;
-            color: var(--dark-bg);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .message {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        .date-container {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: var(--glass-gradient);
-            padding: 1.2rem 2.5rem;
-            border-radius: 20px;
-            border: 2px solid var(--neon-blue);
-            margin-top: 1rem;
-            box-shadow: var(--neon-glow);
+            gap: 0.7rem;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
             transition: all 0.3s ease;
         }
 
-        .date-container:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--neon-glow-strong);
+        .info-item:hover {
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: var(--glow);
+            transform: translateY(-2px);
         }
 
-        .date-icon {
-            font-size: 2rem;
+        .info-item .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(0, 212, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-item .icon i {
             color: var(--neon-cyan);
+            font-size: 0.9rem;
         }
 
-        .date {
-            font-size: 2rem;
+        .info-item .text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-item .text .label {
+            font-size: 0.68rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 500;
+        }
+
+        .info-item .text .value {
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--neon-blue);
+            margin-top: 2px;
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: var(--neon-glow-strong);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 60px rgba(0, 212, 255, 1);
-            }
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin-bottom: 2rem;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 30px 20px;
-                margin: 20px;
-            }
-
-            .logo {
-                font-size: 2.2rem;
-            }
-
-            .icon-container {
-                width: 100px;
-                height: 100px;
-            }
-
-            .icon-container i {
-                font-size: 50px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .message {
-                font-size: 1.1rem;
-            }
-
-            .date-container {
-                padding: 1rem 2rem;
-            }
-
-            .date-icon {
-                font-size: 1.5rem;
-            }
-
-            .date {
-                font-size: 1.5rem;
-            }
+        .channel-section {
+            text-align: center;
         }
 
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.8rem;
-            }
+        .channel-section p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
 
-            .icon-container {
-                width: 80px;
-                height: 80px;
-            }
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.85rem 1.8rem;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.2);
+        }
 
-            .icon-container i {
-                font-size: 40px;
-            }
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.35);
+            background: #22c55e;
+        }
 
-            h1 {
-                font-size: 1.6rem;
-            }
+        .whatsapp-btn i {
+            font-size: 1.15rem;
+        }
 
-            .message {
-                font-size: 1rem;
+        @media (max-width: 580px) {
+            .card {
+                padding: 2.5rem 1.5rem;
+                border-radius: 20px;
             }
-
-            .date-container {
-                padding: 0.8rem 1.5rem;
-            }
-
-            .date-icon {
-                font-size: 1.3rem;
-            }
-
-            .date {
-                font-size: 1.3rem;
+            .logo { font-size: 2rem; }
+            .subtitle { font-size: 0.95rem; }
+            .info-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="card">
+        <span class="badge">Próximamente</span>
         <div class="logo">JARVIS-HRZ</div>
-        <div class="icon-container">
-            <i class="fas fa-tools"></i>
+        <p class="subtitle">
+            La nueva versión de JARVIS está casi lista.<br>
+            Prepárate para una experiencia completamente renovada.
+        </p>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="icon"><i class="fas fa-tag"></i></div>
+                <div class="text">
+                    <span class="label">Preventa</span>
+                    <span class="value">27 de Abril</span>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="icon"><i class="fas fa-download"></i></div>
+                <div class="text">
+                    <span class="label">Descarga oficial</span>
+                    <span class="value">1 de Mayo</span>
+                </div>
+            </div>
         </div>
-        <h1>Sitio en Mantenimiento</h1>
-        <div class="message">
-            Estamos trabajando en una nueva versión de JARVIS.<br>
-            Volvemos pronto con mejoras increíbles.
-        </div>
-        <div class="date-container">
-            <i class="fas fa-calendar-alt date-icon"></i>
-            <span class="date">Abril</span>
+
+        <div class="divider"></div>
+
+        <div class="channel-section">
+            <p>Más información y novedades en el canal oficial</p>
+            <a href="https://whatsapp.com/channel/0029VbBU7dw5a247qZl0KR3U" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+                Canal Oficial de JARVIS
+            </a>
         </div>
     </div>
 </body>
